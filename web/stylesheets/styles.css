@@ -19,6 +19,9 @@ h1 {
     font-size: 4em ;
     color: #485460;
 }
+.btn-success {
+    margin-left: 10px;
+}
 .content {
     width: 90%; 
     padding: 0 25px;
@@ -31,6 +34,10 @@ h1 {
     float: left;
     height: 400px;
     width: auto;
+}
+.jumbotron {
+    padding: inherit 20px;
+    background-color: #fff;
 }
 .logo {
     float: left;  
@@ -100,3 +107,39 @@ h1 {
     background: #fff;
 
 } 
+/*CSS Transition */
+.details {
+                height: 250px;
+                width: 250px;
+                margin: 0 auto;
+                background-color: red;
+                animation-name: stretch;
+                animation-duration: 1.5s; 
+                animation-timing-function: ease-out; 
+                animation-delay: 0;
+                animation-direction: alternate;
+                animation-iteration-count: 4;
+                animation-fill-mode: none;
+                animation-play-state: running;
+                color: #fff;
+                font-weight: bold;
+                text-align: center;
+                
+              }
+
+              @keyframes stretch {
+                0% {
+                  transform: scale(.3);
+                  background-color: red;
+                  border-radius: 100%;
+                }
+                50% {
+                  background-color: deepskyblue;
+                }
+                100% {
+                  transform: scale(1.5);
+                  background-color: pink;
+            }
+}
+              
+        
