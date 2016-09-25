@@ -1,0 +1,91 @@
+ body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: 150px ;
+}
+footer {
+    height: 50px;
+    border-top: 20px;
+    border-top-color: aqua;
+}
+
+main {
+    min-height: 800px;
+}
+h1 {
+    font-weight: bold;
+    font-size:4em ;
+    color: #485460;
+}
+.content {
+    width: 90%; 
+    padding: 0 25px;
+
+}
+.img {
+    float: right;
+    height: 400px;
+    width: auto;
+}
+.logo {
+    float: left;  
+    
+}
+.navbar-inverse{
+    background-color: #485460;
+    border: none;
+    margin-bottom: 0;
+}
+.navdetail {
+/*
+    background-color: #F37159;
+    height: 20px;
+*/
+}
+            
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+.parallax { 
+    /* The image used */
+    background-image: url("/images/amazed.jpg");
+
+    /* Set a specific height */
+    
+    height: 100%; 
+    width: 100%;
+    top: 0;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.parallax1 { 
+    /* The image used */
+    background-image: url("/images/desk.jpg");
+
+    /* Set a specific height */
+    
+    height: 100%; 
+    width: 100%;
+    top: 0;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.wrapper {
+    height: 600px;
+    background: #2F2F37;
+}  
+.wrapper1 {
+    height: 400px;
+    background: #fff;
+    margin: 0 20px;
+} 
