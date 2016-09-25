@@ -16,7 +16,7 @@ main {
 }
 h1 {
     font-weight: bold;
-    font-size:4em ;
+    font-size: 4em ;
     color: #485460;
 }
 .content {
@@ -24,8 +24,11 @@ h1 {
     padding: 0 25px;
 
 }
+.hello {
+    margin-left: 15px;
+}
 .img {
-    float: right;
+    float: left;
     height: 400px;
     width: auto;
 }
@@ -80,14 +83,17 @@ h1 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.thumbnail {
+    height: 580px;
+}
 .wrapper {
     height: 600px;
     background: #2F2F37;
 }  
 .wrapper1 {
-    height: 400px;
+    height: 100%;
     background: #fff;
-    margin: 0 20px;
+    margin: 30px;
 } 
 .wrapper2 {
     height: 400px;
