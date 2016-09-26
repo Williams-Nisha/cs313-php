@@ -47,6 +47,7 @@ h1 {
     background-color: #485460;
     border: none;
     margin-bottom: 0;
+    z-index: 1;
 }
 .navdetail {
 /*
@@ -66,13 +67,13 @@ h1 {
     
     height: 100%; 
     width: 100%;
-    top: 0;
+    margin-bottom: 20px;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 75%;
 }
 .parallax1 { 
     /* The image used */
@@ -85,17 +86,18 @@ h1 {
     top: 0;
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    
+    background-color: #E5E5E5;
     background-position: top center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 85%;
 }
 .thumbnail {
     height: 580px;
 }
 .wrapper {
     height: 600px;
-    background: #2F2F37;
+    background: #2F2F37; 
+    position: relative;
 }  
 .wrapper1 {
     height: 100%;
