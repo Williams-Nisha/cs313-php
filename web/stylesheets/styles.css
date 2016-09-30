@@ -52,6 +52,9 @@ form button {
     float: left;  
     
 }
+.nav-button {
+ margin-top: 0;   
+}
 .navbar-inverse{
     background-color: #485460;
     border: none;
