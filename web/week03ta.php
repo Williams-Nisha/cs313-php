@@ -1,20 +1,39 @@
+?php 
+    $name = $email = $major = $places = $comments = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if(isset($_POST['name'])){
+            $name = htmlspecialchars($_POST['name']);
+        }
+        if(isset($_POST['email'])){
+            $email = htmlspecialchars($_POST["email"]);
+        }
+        if(isset($_POST['major'])){
+            $major = $_POST["major"];
+        }
+        if(!empty($_POST['checkbox'])){
+            $places = $_POST['checkbox'];
+        }
+        $comments = htmlspecialchars($_POST["comments"]);
+    }
+?>
 
 <html>
 <body>
-
-Name: <?php echo $_POST["name"]; ?><br>
-Email: <a href ="mailto:<?php echo $_POST["email"]; ?>"><?php echo $_POST["email"]; ?></a><br>
-Major: <?php echo $_POST["major"]; ?><br>
-Places you have been: <br>
-    <?php 
-        if(!empty($_POST['checkbox'])) {
-            foreach($_POST['checkbox'] as $check) {
+    <a href="week03ta.html">Back to Form</a><br><br>
+    <b>Name:</b> <?php echo $name; ?><br><br>
+    <b>Email:</b> <a href="mailto:<?php echo $email; ?>"><?php echo $email;?></a><br><br>
+    <b>Major:</b> <?php echo $major; ?><br><br>
+    <b>Places you have been:</b><br>
+     <?php 
+        if(!empty($places)){
+            foreach($places as $check){
                 echo $check . "<br>";
             }
         }
-    ?><br>
-    Your comments: <br>
-    <?php echo $_POST["comments"]; ?>
+        ?>
+    <br>
+    <b>Your comments:</b><br/>
+    <?php echo $comments; ?>
 
 </body>
 </html>
