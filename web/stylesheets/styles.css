@@ -19,6 +19,12 @@ h1 {
     font-size: 4em ;
     color: #485460;
 }
+form {
+    width: 500px;
+    margin: 50px auto;
+    border: #333 1px solid;
+    padding: 20px;
+}
 .btn-success {
     margin-left: 10px;
 }
