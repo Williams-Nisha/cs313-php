@@ -1,4 +1,4 @@
-?php 
+<?php 
     $name = $email = $major = $places = $comments = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if(isset($_POST['name'])){
