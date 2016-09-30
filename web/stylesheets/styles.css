@@ -25,6 +25,9 @@ form {
     border: #333 1px solid;
     padding: 20px;
 }
+form button {
+    margin-top: 30px;
+}
 .btn-success {
     margin-left: 10px;
 }
