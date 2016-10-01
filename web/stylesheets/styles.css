@@ -20,7 +20,7 @@ h1 {
     color: #485460;
 }
 form {
-    width: 500px;
+    width: 800px;
     margin: 50px auto;
     border: #333 1px solid;
     padding: 20px;
@@ -28,13 +28,31 @@ form {
 form button {
     margin-top: 30px;
 }
+table {
+    width: 100%;
+    margin-top: 40px;
+}
+thead {
+    text-align: left;
+    font-size: 1.125em;
+    
+}
+td,th {
+    padding: 5px;
+}
 .btn-success {
     margin-left: 10px;
+}
+.bold {
+    font-weight: bold;
 }
 .content {
     width: 90%; 
     padding: 0 25px;
 
+}
+.error {
+    color:red;
 }
 .hello {
     margin-left: 15px;
