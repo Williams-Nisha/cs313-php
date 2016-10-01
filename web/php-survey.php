@@ -70,7 +70,6 @@ function test_input($data) {
       <link rel="stylesheet" href="stylesheets/styles.css">
     </head>
     <body>
-<!--        <? php include 'nav.php';?>-->
                <header>
             <img class ="logo" src="images/logo.png" alt="diamond logo for nisha williams">
         </header>
