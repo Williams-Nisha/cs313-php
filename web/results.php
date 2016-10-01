@@ -1,7 +1,4 @@
-<?php
-error_reporting(-1);
-ini_set('display_errors', 'On');
-?>
+
 <html>
     <head>
         <title>Home Page for Cs313</title>
@@ -9,8 +6,7 @@ ini_set('display_errors', 'On');
       <link rel="stylesheet" href="stylesheets/styles.css">
     </head>
     <body>
-<!--        <? php include 'nav.php';?>-->
-               <header>
+        <header>
             <img class ="logo" src="images/logo.png" alt="diamond logo for nisha williams">
         </header>
          <nav class="navbar navbar-inverse">
