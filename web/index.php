@@ -1,25 +1,78 @@
-<?php
+<html>
+     <head>
+        <title>
+            Appointment Setter App
+        </title>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="../stylesheets/styles.css">
+    </head>
+    <body>
+        <header>
+            <img class="logo" src="../images/logo.png" alt="diamond logo for nisha williams">
+        </header>
+         <nav class="navbar navbar-inverse">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+             <li><a href="index.html">Home</a></li>
+             <li><a href="about.html">About Me</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="assignments.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Assignments<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="./WebstoreHackathon.html" class="musicName">Name</a></li>
+                  <li><a href="./WebstoreHackathon.html" class="musicPrice">Price</a></li>
+                  <li><a href="./WebstoreHackathon.html" class="musicCategory">Category</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default nav-button">Submit</button>
+          </form>
+          </div>
+        </nav>
+        <main>
+            <h2>Mountainland Family Medicine</h2>
+            <h4>Appointment Setting App</h4>
+       <?php
+        session_start(); 
+        // default Heroku Postgres configuration URL
+        $dbUrl = getenv('DATABASE_URL');
 
-require('../vendor/autoload.php');
+        if (empty($dbUrl)) {
+         // example localhost configuration URL with postgres username and a database called cs313db
+            require('/local_db.php');
+        }
 
-$app = new Silex\Application();
-$app['debug'] = true;
+        $dbopts = parse_url($dbUrl);
 
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
+        print "<p>$dbUrl</p>\n\n";
 
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
+        $dbHost = $dbopts["host"]; 
+         $dbPort = $dbopts["port"]; 
+         $dbUser = $dbopts["user"]; 
+         $dbPassword = $dbopts["pass"];
+         $dbName = ltrim($dbopts["path"],'/');
 
-// Our web handlers
+        try {
+         $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
-});
+         foreach($db->query('SELECT patient_id, first_name, last_name, street_address, phone_number, birthdate, city, notes FROM patient') as $row)
+         {
+            echo '<p>';
+            echo '<strong>' . $row['patient_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['street_address'] . ' ' . $row['phone_number'] . ' ' . $row['birthdate'] . ' ' . $row['city'] . ' ' .'</strong>'. $row['notes'];
+            echo '</p>';
 
-$app->run();
+         }
+        }
+        catch (PDOException $ex) {
+         print "<p>error: $ex->getMessage() </p>\n\n";
+         die();
+        }
+    ?>
+    </main>    
+    </body>
+</html>
