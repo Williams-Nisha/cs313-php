@@ -44,7 +44,7 @@
 
         if (empty($dbUrl)) {
          // example localhost configuration URL with postgres username and a database called cs313db
-            require('/local_db.php');
+            require('/app/local_db.php');
         }
 
         $dbopts = parse_url($dbUrl);
@@ -60,7 +60,7 @@
         try {
          $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-         foreach($db->query('SELECT patient_id, first_name, last_name, street_address, phone_number, birthdate, city, notes FROM patient') as $row)
+         foreach($db->query('SELECT * FROM patient') as $row)
          {
             echo '<p>';
             echo '<strong>' . $row['patient_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['street_address'] . ' ' . $row['phone_number'] . ' ' . $row['birthdate'] . ' ' . $row['city'] . ' ' .'</strong>'. $row['notes'];
