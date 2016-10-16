@@ -114,7 +114,7 @@
                     </div>
                     <h4>Patient List</h4>
             <select name="patient">
-                <option value="list"All Patients</option> 
+                <option value="list">All Patients</option> 
                   <h2>Patient Information</h2>
                    <?php
                     $pquery = $db->query('SELECT * FROM patient')->fetchAll();
