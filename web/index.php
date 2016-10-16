@@ -3,14 +3,14 @@
         <title>
             Appointment Setter App
         </title>
-              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      <link rel="stylesheet" href="../stylesheets/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      ` <link rel="stylesheet" href="../stylesheets/styles.css">
     </head>
     <body>
         <header>
             <img class="logo" src="../images/logo.png" alt="diamond logo for nisha williams">
         </header>
-         <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse">
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
              <li><a href="index.html">Home</a></li>
@@ -44,14 +44,14 @@
 
         if (empty($dbUrl)) {
          // example localhost configuration URL with postgres username and a database called cs313db
-            require('/app/local_db.php');
+            require('/local_db.php');
         }
 
         $dbopts = parse_url($dbUrl);
 
         print "<p>$dbUrl</p>\n\n";
 
-        $dbHost = $dbopts["host"]; 
+         $dbHost = $dbopts["host"]; 
          $dbPort = $dbopts["port"]; 
          $dbUser = $dbopts["user"]; 
          $dbPassword = $dbopts["pass"];
@@ -67,6 +67,39 @@
             echo '</p>';
 
          }
+        <form action="echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+            <select name="doctors">
+                <option value="all">Search Our Doctors</option>
+                $query = $db->query('SELECT * FROM physician')->fetchAll();
+                
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    $doctors = $_POST['doctors'];
+                    if($doctors != 'all'){
+                        $query = $db->query("SELECT * FROM physicians WHERE first_name='$doctors'")->fetchAll();
+                    }
+                }
+ 
+                foreach($db->query('SELECT DISTINCT book FROM scriptures')->fetchAll() as $books){
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        if($_POST["doctors"] == $doctors["first_name"]){ 
+                            $selected = "selected='selected'";
+                        }
+                        else{
+                            $selected = "";
+                        }
+                    }
+                    echo '<option value="' . $doctors['first_name'] . '"' . $selected . '>' . $doctors['last_name'] . '</option>';
+                }
+            
+                <input type="submit" value="Search"/>
+            </select>
+        </form>
+            foreach($query as $row){
+                    echo '<b>' . $row['first_name'] . ' ' . $row['last_name'] . ':' . $row['specialty_id'] . '</b>';
+                    echo ' - "' . $row['content'] . '"';
+                    echo '<br/><br/>';
+            }
+    
         }
         catch (PDOException $ex) {
          print "<p>error: $ex->getMessage() </p>\n\n";
