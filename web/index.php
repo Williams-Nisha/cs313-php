@@ -61,7 +61,13 @@
             print "<p>error: $ex->getMessage() </p>\n\n";
             die();
         }
-
+        ?>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+            <select name="books">
+                <option value="all">Search All Books</option>    
+                    <input type="submit" value="Search"/>
+            </select>
+        </form>
          foreach($db->query('SELECT * FROM patient') as $row)
          {
             echo '<p>';
