@@ -126,7 +126,7 @@
                         }
                     }
 
-                    foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $doctor){
+                    foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $patient){
                         if($_SERVER["REQUEST_METHOD"] == "POST"){
                             if($_POST["patient"] == $patient["first_name"]){ 
                                 $selected = "selected='selected'";
