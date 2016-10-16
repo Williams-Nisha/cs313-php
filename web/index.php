@@ -107,7 +107,7 @@
                     foreach($query as $row){
                         echo '<tr><td>';
                         echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
-                        echo '</td><tr>';
+                        echo '</td></tr>';
                      }
                     ?>
                     </tbody>
