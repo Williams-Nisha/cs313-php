@@ -114,14 +114,14 @@
                     </div>
                     <h4>Patient List</h4>
             <select name="patient">
-                <option value="all">All Patients</option> 
+                <option value="all1">All Patients</option> 
                   <h2>Patient Information</h2>
                    <?php
                     $pquery = $db->query('SELECT * FROM patient')->fetchAll();
                 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $patient = $_POST['patient'];
-                        if($patient != 'all'){
+                        if($patient != 'all1'){
                             $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                         }
                     }
@@ -148,8 +148,7 @@
                             <th>First Name</th> 
                             <th>Last Name</th>
                             <th>Street Address</th> 
-                            <th>Phone #</th> 
-                            <th>Specialty</th>
+                            <th>Phone #</th> >
                             <th>Birthdate</th> 
                             <th>City</th>
                           </tr>
