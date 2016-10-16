@@ -84,7 +84,7 @@
                             $selected = "";
                         }
                     }
-                    echo '<option value="' . $doctor['doctor'] . '"' . $selected . '>' . $doctor['doctor'] . '</option>';
+                    echo '<option value="' . $doctor['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
                 }
                 ?>       
                     <input type="submit" value="Search"/>
