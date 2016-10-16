@@ -94,12 +94,11 @@
                     <table>
                         <thead>
                            <tr>
-                            <?php echo 
-                            <th>' '</th> 
-                            <th>'Name'</th> 
-                            <th>' '</th> 
-                            <th>'Phone #'</th> 
-                            <th>'Specialty'</th> ?>
+                            <th></th> 
+                            <th>Name</th> 
+                            <th></th> 
+                            <th>Phone #</th> 
+                            <th>Specialty</th>
                           </tr>
                         </thead>
                         <tbody>
