@@ -63,8 +63,30 @@
         }
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-            <select name="books">
-                <option value="all">Search All Books</option>    
+            <select name="doctor">
+                <option value="all">Find A Doctor</option> 
+                   <?php
+                $query = $db->query('SELECT * FROM physician')->fetchAll();
+                
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    $doctor = $_POST['doctor'];
+                    if($doctor != 'all'){
+                        $query = $db->query("SELECT * FROM physician WHERE first_name='$doctor'")->fetchAll();
+                    }
+                }
+ 
+                foreach($db->query('SELECT DISTINCT book FROM physician')->fetchAll() as $books){
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        if($_POST["doctor"] == $doctor["first_name"]){ 
+                            $selected = "selected='selected'";
+                        }
+                        else{
+                            $selected = "";
+                        }
+                    }
+                    echo '<option value="' . $doctor['doctor'] . '"' . $selected . '>' . $doctor['doctor'] . '</option>';
+                }
+                ?>       
                     <input type="submit" value="Search"/>
             </select>
         </form>
