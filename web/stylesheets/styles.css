@@ -46,6 +46,9 @@ td,th {
 .bold {
     font-weight: bold;
 }
+.center {
+    text-align: center;
+}
 .content {
     width: 90%; 
     padding: 0 25px;
