@@ -68,6 +68,7 @@
                     <input type="submit" value="Search"/>
             </select>
         </form>
+        <?php
          foreach($db->query('SELECT * FROM patient') as $row)
          {
             echo '<p>';
@@ -75,6 +76,7 @@
             echo '</p>';
 
          }
+        
     ?>
     </main>    
     </body>
