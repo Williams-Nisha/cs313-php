@@ -166,7 +166,7 @@
                     </div>
                     <h4>Approved Insurances</h4>
             <select name="insurance">
-                <option value="ins">Insurance List </option> 
+                <option value="ins">Insurance Companies</option> 
                   <h2>Insurance List</h2>
                    <?php
                     $iquery = $db->query('SELECT * FROM insurance')->fetchAll();
@@ -197,12 +197,7 @@
                         <thead>
                            <tr>
                             <th></th> 
-                            <th>First Name</th> 
-                            <th>Last Name</th>
-                            <th>Street Address</th> 
-                            <th>Phone #</th> 
-                            <th>Birthdate</th> 
-                            <th>City</th>
+                            <th>Insurance Company</th> 
                           </tr>
                         </thead>
                         <tbody>
