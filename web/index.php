@@ -164,9 +164,9 @@
                     </tbody>
                     </table>
                     </div>
-                    <h4>Approved Insurances</h4>
+                    <h4>Approved Insurance Companies</h4>
             <select name="insurance">
-                <option value="ins">Insurance Companies</option> 
+                <option value="ins">Insurance List</option> 
                   <h2>Insurance List</h2>
                    <?php
                     $iquery = $db->query('SELECT * FROM insurance')->fetchAll();
