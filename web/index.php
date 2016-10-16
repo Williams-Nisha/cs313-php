@@ -202,7 +202,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        foreach(iquery as $data){
+                        foreach($iquery as $data){
                         echo '<tr>';
                         echo '<strong><td>' . $data['insurance_id'] . '</td><td>' . $data['name'];
                         echo '</td></tr>';
