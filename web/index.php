@@ -91,10 +91,10 @@
             </select>
         </form>
         <?php
-         foreach($db->query('SELECT * FROM patient') as $row)
+         foreach($query as $row)
          {
             echo '<p>';
-            echo '<strong>' . $row['patient_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['street_address'] . ' ' . $row['phone_number'] . ' ' . $row['birthdate'] . ' ' . $row['city'] . ' ' .'</strong>'. $row['notes'];
+            echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
             echo '</p>';
 
          }
