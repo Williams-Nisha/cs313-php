@@ -34,7 +34,7 @@
           </form>
           </div>
         </nav>
-        <main>
+        <main class="content">
             <h2>Mountainland Family Medicine</h2>
             <h4>Appointment Setting App</h4>
        <?php
@@ -65,41 +65,40 @@
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <select name="doctor">
                 <option value="all">Find A Doctor</option> 
+                  <h2>Doctor Information</h2>
                    <?php
-                $query = $db->query('SELECT * FROM physician')->fetchAll();
+                    $query = $db->query('SELECT * FROM physician')->fetchAll();
                 
-                if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $doctor = $_POST['doctor'];
-                    if($doctor != 'all'){
-                        $query = $db->query("SELECT * FROM physician WHERE first_name='$doctor'")->fetchAll();
-                    }
-                }
- 
-                foreach($db->query('SELECT DISTINCT first_name FROM physician')->fetchAll() as $doctor){
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        if($_POST["doctor"] == $doctor["first_name"]){ 
-                            $selected = "selected='selected'";
-                        }
-                        else{
-                            $selected = "";
+                        $doctor = $_POST['doctor'];
+                        if($doctor != 'all'){
+                            $query = $db->query("SELECT * FROM physician WHERE first_name='$doctor'")->fetchAll();
                         }
                     }
-                    echo '<option value="' . $doctor['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
-                }
-                ?>       
-                    <input type="submit" value="Search"/>
-            </select>
-        </form>
-        <?php
-         foreach($query as $row)
-         {
-            echo '<p>';
-            echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
-            echo '</p>';
 
-         }
-        
-    ?>
+                    foreach($db->query('SELECT DISTINCT first_name FROM physician')->fetchAll() as $doctor){
+                        if($_SERVER["REQUEST_METHOD"] == "POST"){
+                            if($_POST["doctor"] == $doctor["first_name"]){ 
+                                $selected = "selected='selected'";
+                            }
+                            else{
+                                $selected = "";
+                            }
+                        }
+                        echo '<option value="' . $doctor['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
+                    }
+
+                     foreach($query as $row){
+                        echo '<p>';
+                        echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
+                        echo '</p>';
+
+                     }
+                    ?>       
+                    <input type="submit" value="Search"/>
+                </select>
+        </form>
+
     </main>    
     </body>
 </html>
