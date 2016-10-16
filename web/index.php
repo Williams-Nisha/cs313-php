@@ -87,16 +87,17 @@
                         }
                         echo '<option value="' . $doctor['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
                     }
-
-                     foreach($query as $row){
+                    ?>       
+                    <input type="submit" value="Search"/>
+                </select>
+                    <?php
+                    foreach($query as $row){
                         echo '<p>';
                         echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
                         echo '</p>';
 
                      }
-                    ?>       
-                    <input type="submit" value="Search"/>
-                </select>
+                    ?>
         </form>
 
     </main>    
