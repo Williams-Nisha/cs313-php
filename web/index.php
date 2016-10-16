@@ -117,12 +117,12 @@
                 <option value="all">All Patients</option> 
                   <h2>Patient Information</h2>
                    <?php
-                    $query = $db->query('SELECT * FROM patient')->fetchAll();
+                    $pquery = $db->query('SELECT * FROM patient')->fetchAll();
                 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $patient = $_POST['patient'];
                         if($patient != 'all'){
-                            $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                            $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                         }
                     }
 
@@ -156,7 +156,7 @@
                         </thead>
                         <tbody>
                     <?php
-                    foreach($query as $row){
+                    foreach($pquery as $row){
                         echo '<tr>';
                         echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['street_address'] . '</td><td>' . $row['phone_number'] . '</td><td>' . $row['birthdate'] . '</td><td>' . $row['city'];
                         echo '</td></tr>';
