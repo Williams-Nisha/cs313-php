@@ -112,6 +112,59 @@
                     </tbody>
                     </table>
                     </div>
+                    <h4>Patient List</h4>
+            <select name="patient">
+                <option value="all">All Patients</option> 
+                  <h2>Patient Information</h2>
+                   <?php
+                    $query = $db->query('SELECT * FROM patient')->fetchAll();
+                
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $doctor = $_POST['patient'];
+                        if($doctor != 'all'){
+                            $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                        }
+                    }
+
+                    foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $doctor){
+                        if($_SERVER["REQUEST_METHOD"] == "POST"){
+                            if($_POST["patient"] == $patient["first_name"]){ 
+                                $selected = "selected='selected'";
+                            }
+                            else{
+                                $selected = "";
+                            }
+                        }
+                        echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $patient['first_name'] . '</option>';
+                    }
+                    ?>       
+                    <input type="submit" value="Search"/>
+                </select>
+                <div class="information">
+                    <table>
+                        <thead>
+                           <tr>
+                            <th></th> 
+                            <th>First Name</th> 
+                            <th>Last Name</th>
+                            <th>Street Address</th> 
+                            <th>Phone #</th> 
+                            <th>Specialty</th>
+                            <th>Birthdate</th> 
+                            <th>City</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                    <?php
+                    foreach($query as $row){
+                        echo '<tr>';
+                        echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['street_address'] . '</td><td>' . $row['phone_number'] . '</td><td>' . $row['birthdate'] . '</td><td>' . $row['city'];
+                        echo '</td></tr>';
+                     }
+                    ?>
+                    </tbody>
+                    </table>
+                    </div>
         </form>
     </main>    
     </body>
