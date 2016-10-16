@@ -57,6 +57,11 @@ td,th {
 .hello {
     margin-left: 15px;
 }
+.information {
+    min-height: 500px;
+    margin-top: 10px;
+    padding: 20px;
+}
 .img {
     float: left;
     height: 400px;

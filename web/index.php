@@ -63,6 +63,8 @@
         }
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+            <h2>Mountainland Family Medicine</h2>
+            <h4>Appointment Setting App</h4>
             <select name="doctor">
                 <option value="all">Find A Doctor</option> 
                   <h2>Doctor Information</h2>
@@ -90,6 +92,7 @@
                     ?>       
                     <input type="submit" value="Search"/>
                 </select>
+                    <div class="information">
                     <?php
                     foreach($query as $row){
                         echo '<p>';
@@ -98,6 +101,7 @@
 
                      }
                     ?>
+                    </div>
         </form>
 
     </main>    
