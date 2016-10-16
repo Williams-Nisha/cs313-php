@@ -95,8 +95,8 @@
                         <thead>
                            <tr>
                             <th></th> 
-                            <th>Name</th> 
-                            <th></th> 
+                            <th>First Name</th> 
+                            <th>Last Name</th> 
                             <th>Phone #</th> 
                             <th>Specialty</th>
                           </tr>
