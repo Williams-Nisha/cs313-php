@@ -120,8 +120,8 @@
                     $query = $db->query('SELECT * FROM patient')->fetchAll();
                 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        $doctor = $_POST['patient'];
-                        if($doctor != 'all'){
+                        $patient = $_POST['patient'];
+                        if($patient != 'all'){
                             $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                         }
                     }
