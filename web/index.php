@@ -104,8 +104,8 @@
                         <tbody>
                     <?php
                     foreach($query as $row){
-                        echo '<tr><td>';
-                        echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
+                        echo '<tr>';
+                        echo '<strong><td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['phone_number'] . '</td><td>' . $row['specialty_id'];
                         echo '</td></tr>';
                      }
                     ?>
