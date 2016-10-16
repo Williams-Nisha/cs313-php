@@ -114,14 +114,14 @@
                     </div>
                     <h4>Patient List</h4>
             <select name="patient">
-                <option value="all1">All Patients</option> 
+                <option value="list"All Patients</option> 
                   <h2>Patient Information</h2>
                    <?php
                     $pquery = $db->query('SELECT * FROM patient')->fetchAll();
                 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $patient = $_POST['patient'];
-                        if($patient != 'all1'){
+                        if($patient != 'list'){
                             $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                         }
                     }
@@ -148,16 +148,16 @@
                             <th>First Name</th> 
                             <th>Last Name</th>
                             <th>Street Address</th> 
-                            <th>Phone #</th> >
+                            <th>Phone #</th> 
                             <th>Birthdate</th> 
                             <th>City</th>
                           </tr>
                         </thead>
                         <tbody>
                     <?php
-                    foreach($pquery as $row){
+                    foreach($pquery as $rows){
                         echo '<tr>';
-                        echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['street_address'] . '</td><td>' . $row['phone_number'] . '</td><td>' . $row['birthdate'] . '</td><td>' . $row['city'];
+                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . $rows['birthdate'] . '</td><td>' . $rows['city'];
                         echo '</td></tr>';
                      }
                     ?>
