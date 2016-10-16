@@ -92,6 +92,7 @@
                 </select>
                     <div class="information">
                     <?php
+                        echo '<h4>Name Phone# Specialty</h4>';
                     foreach($query as $row){
                         echo '<p>';
                         echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
