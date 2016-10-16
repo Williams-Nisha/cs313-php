@@ -35,8 +35,6 @@
           </div>
         </nav>
         <main class="content">
-            <h2>Mountainland Family Medicine</h2>
-            <h4>Appointment Setting App</h4>
        <?php
         session_start(); 
         // default Heroku Postgres configuration URL
@@ -64,9 +62,9 @@
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <h2>Mountainland Family Medicine</h2>
-            <h4>Appointment Setting App</h4>
+            <h4>Find a Doctor</h4>
             <select name="doctor">
-                <option value="all">Find A Doctor</option> 
+                <option value="all">All Doctors</option> 
                   <h2>Doctor Information</h2>
                    <?php
                     $query = $db->query('SELECT * FROM physician')->fetchAll();
