@@ -164,6 +164,58 @@
                     </tbody>
                     </table>
                     </div>
+                    <h4>Approved Insurances</h4>
+            <select name="insurance">
+                <option value="ins">Insurance List </option> 
+                  <h2>Insurance List</h2>
+                   <?php
+                    $iquery = $db->query('SELECT * FROM insurance')->fetchAll();
+                
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        $insurance = $_POST['insurance'];
+                        if($insurance != 'ins'){
+                            $iquery = $db->query("SELECT * FROM insurance WHERE name='$insurance'")->fetchAll();
+                        }
+                    }
+
+                    foreach($db->query('SELECT DISTINCT name FROM insurance')->fetchAll() as $insurance){
+                        if($_SERVER["REQUEST_METHOD"] == "POST"){
+                            if($_POST["insurance"] == $insurance["name"]){ 
+                                $selected = "selected='selected'";
+                            }
+                            else{
+                                $selected = "";
+                            }
+                        }
+                        echo '<option value="' . $insurance['name'] . '"' . $selected . '>' . $insurance['name'] . '</option>';
+                    }
+                    ?>       
+                    <input type="submit" value="Search"/>
+                </select>
+                <div class="information">
+                    <table>
+                        <thead>
+                           <tr>
+                            <th></th> 
+                            <th>First Name</th> 
+                            <th>Last Name</th>
+                            <th>Street Address</th> 
+                            <th>Phone #</th> 
+                            <th>Birthdate</th> 
+                            <th>City</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach(iquery as $data){
+                        echo '<tr>';
+                        echo '<strong><td>' . $data['insurance_id'] . '</td><td>' . $data['name'];
+                        echo '</td></tr>';
+                     }
+                    ?>
+                    </tbody>
+                    </table>
+                    </div>                    
         </form>
     </main>    
     </body>
