@@ -91,18 +91,29 @@
                     <input type="submit" value="Search"/>
                 </select>
                     <div class="information">
+                    <table>
+                        <thead>
+                           <tr>
+                                <?php echo 
+                                <th>' '</th> 
+                                <th>'Name'</th> 
+                                <th>' '</th> 
+                                <th>'Phone #'</th> 
+                                <th>'Specialty'</th> ?>
+                            </tr>
+                        </thead>
+                        <tbody>
                     <?php
-                        echo '<h4>Name Phone# Specialty</h4>';
                     foreach($query as $row){
-                        echo '<p>';
+                        echo '<tr><td>';
                         echo '<strong>' . $row['physician_id'] . ' ' . $row['first_name'] . ' ' . $row['last_name'] . ' ' . $row['phone_number'] . ' ' . $row['specialty_id'];
-                        echo '</p>';
-
+                        echo '</td><tr>';
                      }
                     ?>
+                    </tbody>
+                    </table>
                     </div>
         </form>
-
     </main>    
     </body>
 </html>
