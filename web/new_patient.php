@@ -124,8 +124,6 @@ require('db_connection.php');
                 <h2>New Patient Information</h2>
                    <?php
                 $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
-                        }
-                    }
                 ?>
                 <div class="information">
                     <table>
