@@ -16,7 +16,7 @@ require('db_connection.php');
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
                 <?php echo 'This will show the doctor''s schedules';?>
-                               <h4>Doctor List</h4>
+                <h4>Doctor List</h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
         <option value="all">All Doctors</option> 
@@ -59,11 +59,11 @@ require('db_connection.php');
                 </thead>
                 <tbody>
                 <?php
-                    foreach($query as $row){
-                        echo '<tr>';
-                        echo '<strong><td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'];
-                        echo '</td></tr>';
-                     }
+//                    foreach($query as $row){
+//                        echo '<tr>';
+//                        echo '<strong><td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'];
+//                        echo '</td></tr>';
+//                     }
                     ?>
                 </tbody>
             </table>
