@@ -1,0 +1,366 @@
+<<<<<<< HEAD
+ body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: 150px ;
+}
+footer {
+    height: 50px;
+    border-top: 20px;
+    border-top-color: aqua;
+}
+
+main {
+    min-height: 800px;
+}
+h1 {
+    font-weight: bold;
+    font-size: 4em ;
+    color: #485460;
+}
+form {
+    width: 800px;
+    margin: 50px auto;
+    border: #333 1px solid;
+    padding: 20px;
+}
+form button {
+    margin-top: 30px;
+}
+table {
+    width: 100%;
+    margin-top: 40px;
+}
+thead {
+    text-align: left;
+    font-size: 1.125em;
+    
+}
+td,th {
+    padding: 5px;
+}
+input[type="submit"]{
+    margin-left: 5px;
+}
+.btn-success {
+    margin-left: 10px;
+}
+.bold {
+    font-weight: bold;
+}
+.center {
+    text-align: center;
+}
+.content {
+    width: 90%; 
+    padding: 0 25px;
+
+}
+.error {
+    color:red;
+}
+.hello {
+    margin-left: 15px;
+}
+.information {
+    min-height: 200px;
+    margin-top: 10px;
+}
+.img {
+    float: left;
+    height: 400px;
+    width: auto;
+}
+.jumbotron {
+    padding: inherit 20px;
+    background-color: #fff;
+}
+.logo {
+    float: left;  
+    
+}
+.nav-button {
+ margin-top: 0;   
+}
+.navbar-inverse{
+    background-color: #485460;
+    border: none;
+    margin-bottom: 0;
+    z-index: 1;
+}
+.navdetail {
+/*
+    background-color: #F37159;
+    height: 20px;
+*/
+}
+            
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+.parallax { 
+    /* The image used */
+    background-image: url("/images/amazed.jpg");
+
+    /* Set a specific height */
+    
+    height: 100%; 
+    width: 100%;
+    margin-bottom: 20px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+}
+.parallax1 { 
+    /* The image used */
+    background-image: url("/images/desk.jpg");
+
+    /* Set a specific height */
+    
+    height: 100%; 
+    width: 100%;
+    top: 0;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-color: #E5E5E5;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 85%;
+}
+.thumbnail {
+    height: 580px;
+}
+.wrapper {
+    height: 600px;
+    background: #2F2F37; 
+    position: relative;
+}  
+.wrapper1 {
+    height: 100%;
+    background: #fff;
+    margin: 30px;
+} 
+.wrapper2 {
+    height: 400px;
+    background: #fff;
+
+} 
+/*CSS Transition */
+.details {
+                height: 250px;
+                width: 250px;
+                margin: 0 auto;
+                background-color: red;
+                animation-name: stretch;
+                animation-duration: 1.5s; 
+                animation-timing-function: ease-out; 
+                animation-delay: 0;
+                animation-direction: alternate;
+                animation-iteration-count: 4;
+                animation-fill-mode: none;
+                animation-play-state: running;
+                color: #fff;
+                font-weight: bold;
+                text-align: center;
+                
+              }
+
+              @keyframes stretch {
+                0% {
+                  transform: scale(.3);
+                  background-color: red;
+                  border-radius: 100%;
+                }
+                50% {
+                  background-color: deepskyblue;
+                }
+                100% {
+                  transform: scale(1.5);
+                  background-color: pink;
+            }
+}
+              
+=======
+ body {
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: 150px ;
+}
+footer {
+    height: 50px;
+    border-top: 20px;
+    border-top-color: aqua;
+}
+
+main {
+    min-height: 800px;
+}
+h1 {
+    font-weight: bold;
+    font-size: 4em ;
+    color: #485460;
+}
+form {
+    width: 800px;
+    margin: 50px auto;
+    border: #333 1px solid;
+    padding: 20px;
+}
+form button {
+    margin-top: 30px;
+}
+table {
+    width: 100%;
+    margin-top: 40px;
+}
+thead {
+    text-align: left;
+    font-size: 1.125em;
+    
+}
+td,th {
+    padding: 5px;
+}
+.btn-success {
+    margin-left: 10px;
+}
+.bold {
+    font-weight: bold;
+}
+.content {
+    width: 90%; 
+    padding: 0 25px;
+
+}
+.error {
+    color:red;
+}
+.hello {
+    margin-left: 15px;
+}
+.img {
+    float: left;
+    height: 400px;
+    width: auto;
+}
+.jumbotron {
+    padding: inherit 20px;
+    background-color: #fff;
+}
+.logo {
+    float: left;  
+    
+}
+.nav-button {
+ margin-top: 0;   
+}
+.navbar-inverse{
+    background-color: #485460;
+    border: none;
+    margin-bottom: 0;
+    z-index: 1;
+}
+.navdetail {
+/*
+    background-color: #F37159;
+    height: 20px;
+*/
+}
+            
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+.parallax { 
+    /* The image used */
+    background-image: url("/images/amazed.jpg");
+
+    /* Set a specific height */
+    
+    height: 100%; 
+    width: 100%;
+    margin-bottom: 20px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+}
+.parallax1 { 
+    /* The image used */
+    background-image: url("/images/desk.jpg");
+
+    /* Set a specific height */
+    
+    height: 100%; 
+    width: 100%;
+    top: 0;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-color: #E5E5E5;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 85%;
+}
+.thumbnail {
+    height: 580px;
+}
+.wrapper {
+    height: 600px;
+    background: #2F2F37; 
+    position: relative;
+}  
+.wrapper1 {
+    height: 100%;
+    background: #fff;
+    margin: 30px;
+} 
+.wrapper2 {
+    height: 400px;
+    background: #fff;
+
+} 
+/*CSS Transition */
+.details {
+                height: 250px;
+                width: 250px;
+                margin: 0 auto;
+                background-color: red;
+                animation-name: stretch;
+                animation-duration: 1.5s; 
+                animation-timing-function: ease-out; 
+                animation-delay: 0;
+                animation-direction: alternate;
+                animation-iteration-count: 4;
+                animation-fill-mode: none;
+                animation-play-state: running;
+                color: #fff;
+                font-weight: bold;
+                text-align: center;
+                
+              }
+
+              @keyframes stretch {
+                0% {
+                  transform: scale(.3);
+                  background-color: red;
+                  border-radius: 100%;
+                }
+                50% {
+                  background-color: deepskyblue;
+                }
+                100% {
+                  transform: scale(1.5);
+                  background-color: pink;
+            }
+}
+              
+>>>>>>> be57bddecd2c69d9b10e7dccb4e4e1809e7568d0
+        
