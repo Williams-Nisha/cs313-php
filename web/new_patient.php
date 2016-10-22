@@ -69,14 +69,15 @@ require('db_connection.php');
     echo 'after post validation';
           var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
-                
+                echo 'before insert statement';
                 $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', '(SELECT insurance_id FROM insurance WHERE name='$insurance')', '(SELECT physician_id FROM physician WHERE first_name='$doctor')'");
                                              
- 
+    echo "after insert statement";
                 $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
                 $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
             }
+          var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
 ?>
 <html>
     <head>
