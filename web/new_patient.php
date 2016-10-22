@@ -90,6 +90,7 @@ require('db_connection.php');
             
         <main class="content">
           <div class="app">
+          <h4>Add New Patient</h4>
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <input type="hidden" name="action" value="patient_form">
