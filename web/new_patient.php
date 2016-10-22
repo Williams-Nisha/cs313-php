@@ -11,10 +11,10 @@ require('db_connection.php');
     </head>
     <body>
         <header>
-            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php'; ?>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '../modules/header.php'; ?>
         </header>
         <main>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; 
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '../modules/app_links.php'; 
         $echo 'Hello from new patient';
         ?>
         </main>

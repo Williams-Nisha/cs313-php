@@ -4,7 +4,7 @@
 
     if (empty($dbUrl)) {
      // example localhost configuration URL with postgres username and a database called cs313db
-        require('../../../cs313/model/localDB.php');
+        require('/local_db.php');
     }
 
     $dbopts = parse_url($dbUrl);
