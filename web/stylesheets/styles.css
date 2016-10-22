@@ -91,6 +91,9 @@ td,th {
     height: 400px;
     width: auto;
 }
+.information {
+    padding: 20px;
+}
 .jumbotron {
     padding: inherit 20px;
     background-color: #fff;

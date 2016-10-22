@@ -14,10 +14,10 @@ require('db_connection.php');
         <main class="content">
               <div class="app">
                <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
+               <div class="information">
                <h4>Patient List</h4>
             <select name="patient">
                 <option value="list">All Patients</option> 
-                  <div class="information">
                   <h2>Patient Information</h2>
                    <?php
                     $pquery = $db->query('SELECT * FROM patient')->fetchAll();
