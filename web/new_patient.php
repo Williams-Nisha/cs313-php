@@ -70,31 +70,6 @@ require('db_connection.php');
           var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
                 
-             $db->exec(INSERT INTO patient(
-    patient_id
-,    first_name
-,   last_name
-,   street_address
-,   city
-,   state
-,   zipcode
-,   phone_number
-,   birthdate
-,   notes
-,   insurance_id
-,   physician_id
-) VALUES (
-   DEFAULT
-,   'Beth'
-,   'Christensen'
-,   '2148 Valley View'
-,   '(521)325-7258'
-,   'October-30-1996'
-,   'Glen Harbor'
-,   'Notes about Beth Christensen'
-,   (SELECT insurance_id FROM insurance WHERE name='Aetna')
-,   (SELECT physician_id FROM physician WHERE first_name='Victor')
-);
                 $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) 
                 VALUES 
                 (DEFAULT,'$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', ' (SELECT insurance_id FROM insurance WHERE name='$insurance')', '(SELECT physician_id FROM physician WHERE first_name='$doctor')'");
