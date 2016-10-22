@@ -40,6 +40,11 @@ thead {
 td,th {
     padding: 5px;
 }
+.app_links {
+    display: inline;
+    list-style: none;
+    color: #485460;
+}
 .btn-success {
     margin-left: 10px;
 }
