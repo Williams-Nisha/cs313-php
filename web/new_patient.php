@@ -107,7 +107,7 @@ require('db_connection.php');
                   <b>Phone Number: </b><span><?= $phoneErr;?></span><br>
                   <input type="text" name="phoneNumber" value="<?=$phoneNumber?>"><br><br>
                   <b>Birthdate: </b><span><?= $birthdateErr;?></span><br>
-                  <input type="text" name="birthdate" value="<?=birthdate?>"><br><br>   
+                  <input type="text" name="birthdate" value="<?=$birthdate?>"><br><br>   
                   <b>Preferred Doctor: </b><span></span><br>
                   <input type="text" name="pref_doctor" value="<?=$doctor?>"><br><br> 
                   <b>Insurance Information: </b><span></span><br>
