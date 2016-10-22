@@ -42,13 +42,14 @@
         </nav>
         <main class="content">
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+<!--
+        <form action="<?php 
+//echo htmlspecialchars($_SERVER["PHP_SELF"]);
+?>" method="POST">
             <h2>Mountainland Family Medicine</h2>
-            
-  
-                    
-                   
+         
         </form>
+-->
     </main>    
     </body>
 </html>
