@@ -41,9 +41,12 @@ td,th {
     padding: 5px;
 }
 .app_links {
-    display: inline;
     list-style: none;
     color: #485460;
+}
+.app_links li {
+    display: inline;
+    padding: 0 15px;
 }
 .btn-success {
     margin-left: 10px;
