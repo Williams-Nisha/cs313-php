@@ -1,11 +1,11 @@
  
        
             <ul class="app_links">
-             <li><a href="/web/new_patient.php">New Patient</a></li>
-             <li><a href="/web/patient_list.php">Patient Information</a></li>
-             <li><a href="/web/doctor_list.php">Doctor Information</a></li>
-             <li><a href="/web/schedule.php">Schedule</a></li>
-             <li><a href="/web/appointment.php">Make Appointment</a></li>
+             <li><a href="/new_patient.php">New Patient</a></li>
+             <li><a href="/patient_list.php">Patient Information</a></li>
+             <li><a href="/doctor_list.php">Doctor Information</a></li>
+             <li><a href="/schedule.php">Schedule</a></li>
+             <li><a href="/appointment.php">Make Appointment</a></li>
             </ul>
 <!--
             <ul class="app_links">
