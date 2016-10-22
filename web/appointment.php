@@ -15,6 +15,58 @@ require('db_connection.php');
               <div class="app">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
+  <h4>Doctor List</h4>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                   <select name="doctor">
+        <option value="all">All Doctors</option> 
+             <h2>Appointment Information</h2>
+             <?php
+                $query = $db->query('SELECT * FROM patient')->fetchAll();
+                
+                if($_SERVER["REQUEST_METHOD"] == "POST"){
+                    $patient = $_POST['patient'];
+                    if($patient != 'all'){
+                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                    }
+                }
+
+                foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $doctor){
+                    if($_SERVER["REQUEST_METHOD"] == "POST"){
+                        if($_POST["patient"] == $patient["first_name"]){ 
+                            $selected = "selected='selected'";
+                        }
+                        else{
+                            $selected = "";
+                        }
+                    }
+                    echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
+                }
+                ?>       
+                <input type="submit" value="Search"/>
+        </select>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th> 
+                        <th>First Name</th> 
+                        <th>Last Name</th> 
+                        <th>Date</th> 
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Doctor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach($query as $row){
+                        echo '<tr>';
+                        echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'] '</td><td>' . $row['physician_id'];
+                        echo '</td></tr>';
+                     }
+                    ?>
+                </tbody>
+            </table>
                 </div>
               </div>
         <?php
