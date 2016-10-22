@@ -64,18 +64,18 @@ require('db_connection.php');
         }
     }
     echo 'after post validation';
-//    
-//            if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr == "" && $doctorErr == "" && $doctorErr == ""){
-//                
-//                $db->exec("
-//                INSERT INTO patient 
-//                (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) 
-//                VALUES 
-//                (DEFAULT,'$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', '$insurance_id', '$physician_id')");
-//                 
-//                $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
-//                $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
-//            }
+    
+            if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr == "" && $doctorErr == "" && $doctorErr == ""){
+                
+                $db->exec("
+                INSERT INTO patient 
+                (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) 
+                VALUES 
+                (DEFAULT,'$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', '$insurance_id', '$physician_id')");
+                 
+                $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
+                $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
+            }
 ?>
 <html>
     <head>
