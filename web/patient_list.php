@@ -16,7 +16,7 @@ require('db_connection.php');
         <main>
     <?php include $_SERVER['DOCUMENT_ROOT'] . '../modules/app.php'; ?>
         <?php
-        $echo 'Hello from patient list';
+        echo 'Hello from patient list';
         ?>
         </main>
     </body>
