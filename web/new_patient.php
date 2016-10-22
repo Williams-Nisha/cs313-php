@@ -107,9 +107,9 @@ require('db_connection.php');
                   <input type="text" name="state" value="<?=$state?>"><br><br>
                   <b>Zip Code: </b><span class="error">*<?= $zipcodeErr;?></span><br>
                   <input type="text" name="zipcode" value="<?=$zipcode?>"><br><br>
-                  <b>Phone Number: </b><span class="error">*<?= $phoneErr;?></span><br>
+                  <b>Phone Number: Format (555)555-5555</b><span class="error">*<?= $phoneErr;?></span><br>
                   <input type="text" name="phoneNumber" value="<?=$phoneNumber?>"><br><br>
-                  <b>Birthdate: </b><span class="error">*<?= $birthdateErr;?></span><br>
+                  <b>Birthdate: Format(Year-Month-Day) </b><span class="error">*<?= $birthdateErr;?></span><br>
                   <input type="text" name="birthdate" value="<?=$birthdate?>"><br><br>   
                  <b>Preferred Doctor: </b><br>
                   <input type="text" name="pref_doctor" value="<?=$doctor?>"><br><br> 
