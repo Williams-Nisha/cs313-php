@@ -3,10 +3,10 @@ require('db_connection.php');
 ?>
 <?php
    $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
-   $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
+   $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = "";
 
        if (isset($_POST) && !empty($_POST)){
-        if($_POST['form'] == 'patientform') {
+        if($_POST['form'] == 'patient_form') {
             if(empty($_POST["first_name"])){
                 $fnameErr = "First name is required";
             }
