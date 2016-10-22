@@ -17,6 +17,7 @@ require('db_connection.php');
                <h4>Patient List</h4>
             <select name="patient">
                 <option value="list">All Patients</option> 
+                  <div class="information">
                   <h2>Patient Information</h2>
                    <?php
                     $pquery = $db->query('SELECT * FROM patient')->fetchAll();
@@ -42,7 +43,6 @@ require('db_connection.php');
                     ?>       
                     <input type="submit" value="Search"/>
                 </select>
-                <div class="information">
                     <table>
                         <thead>
                            <tr>
