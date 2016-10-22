@@ -1,5 +1,5 @@
 <?php
-
+echo $_SERVER['DOCUMENT_ROOT'];
 $session_path = $_SERVER['DOCUMENT_ROOT'] . '/cgi-bin/tmp';
 session_save_path($session_path);
 
