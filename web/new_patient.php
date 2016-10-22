@@ -123,29 +123,10 @@ require('db_connection.php');
               </form>
                 <h2>New Patient Information</h2>
                    <?php
-                    $query = $db->query('SELECT * FROM patient')->fetchAll();
-                
-                    if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        $patient = $_POST['patient'];
-                        if($patient != 'list'){
-                            $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                         }
                     }
-
-                    foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $patient){
-                        if($_SERVER["REQUEST_METHOD"] == "POST"){
-                            if($_POST["patient"] == $patient["first_name"]){ 
-                                $selected = "selected='selected'";
-                            }
-                            else{
-                                $selected = "";
-                            }
-                        }
-                        echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $patient['first_name'] . '</option>';
-                    }
-                    ?>       
-                    <input type="submit" value="Search"/>
-                </select>
+                ?>
                 <div class="information">
                     <table>
                         <thead>
@@ -177,6 +158,7 @@ require('db_connection.php');
                     </table>
 
              <?php echo "Hello from new patient"; ?>
+            </div>
             </div>
         </main>
     </body>
