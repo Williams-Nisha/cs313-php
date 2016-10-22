@@ -64,8 +64,8 @@ require('db_connection.php');
         }
     }
     echo 'after post validation';
-    
-            if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr == "" && $doctorErr == "" && $doctorErr == ""){
+          var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $birthdate, $doctor, $insurance, $notes);
+            if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
                 
                 $db->exec("
                 INSERT INTO patient 
@@ -95,27 +95,27 @@ require('db_connection.php');
              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <input type="hidden" name="action" value="patient_form">
                 <input type="hidden" name="form" value="patient_form">
-                 <b>First Name: </b><span><?= $fnameErr;?></span><br>
+                 <b>First Name: </b><span class="error">*<?= $fnameErr;?></span><br>
                   <input type="text" name="first_name" value="<?=$fname?>"><br><br>
-                  <b>Last Name: </b><span><?= $lnameErr;?></span><br>
+                  <b>Last Name: </b><span class="error">*<?= $lnameErr;?></span><br>
                   <input type="text" name="last_name" value="<?=$lname?>"><br><br>
-                  <b>Street Address: </b><span><?= $staddressErr;?></span><br>
+                  <b>Street Address: </b><span class="error">*<?= $staddressErr;?></span><br>
                   <input type="text" name="street_address" value="<?=$staddress?>"><br><br>
-                  <b>City: </b><span><?= $cityErr;?></span><br>
+                  <b>City: </b><span class="error">*<?= $cityErr;?></span><br>
                   <input type="text" name="city" value="<?=$city?>"><br><br>
-                  <b>State: </b><span><?= $stateErr;?></span><br>
+                  <b>State: </b><span class="error">*<?= $stateErr;?></span><br>
                   <input type="text" name="state" value="<?=$state?>"><br><br>
-                  <b>Zip Code: </b><span><?= $zipcodeErr;?></span><br>
+                  <b>Zip Code: </b><span class="error">*<?= $zipcodeErr;?></span><br>
                   <input type="text" name="zipcode" value="<?=$zipcode?>"><br><br>
-                  <b>Phone Number: </b><span><?= $phoneErr;?></span><br>
+                  <b>Phone Number: </b><span class="error">*<?= $phoneErr;?></span><br>
                   <input type="text" name="phoneNumber" value="<?=$phoneNumber?>"><br><br>
-                  <b>Birthdate: </b><span><?= $birthdateErr;?></span><br>
+                  <b>Birthdate: </b><span class="error">*<?= $birthdateErr;?></span><br>
                   <input type="text" name="birthdate" value="<?=$birthdate?>"><br><br>   
-                  <b>Preferred Doctor: </b><span></span><br>
+                 <b>Preferred Doctor: </b><br>
                   <input type="text" name="pref_doctor" value="<?=$doctor?>"><br><br> 
-                  <b>Insurance Information: </b><span></span><br>
+                  <b>Insurance Information: </b><br>
                   <input type="text" name="insurance" value="<?=$insurance?>"><br><br>           
-                  <b>Notes: </b><span></span><br>
+                  <b>Notes: </b><br>
                   <textarea cols="30" rows="4" name="notes"><?=$notes?></textarea><br><br>
 
                   <input type="submit" value="Submit">
