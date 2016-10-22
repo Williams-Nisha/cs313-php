@@ -16,7 +16,7 @@ require('db_connection.php');
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
                 <?php echo 'This will show the doctor''s schedules';?>
-                <h4>Doctor List</h4>
+                <h4>Doctor Schedules</h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
         <option value="all">All Doctors</option> 
