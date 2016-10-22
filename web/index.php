@@ -1,7 +1,5 @@
 <?php
 
-echo $_SERVER['DOCUMENT_ROOT'];
-
 $site_root = $_SERVER['DOCUMENT_ROOT'];
 include $site_root . '/db_connection.php';
 
