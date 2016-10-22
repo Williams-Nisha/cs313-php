@@ -147,17 +147,15 @@ require('db_connection.php');
                         </thead>
                         <tbody>
                     <?php
-                    foreach($pquery as $rows){
-                        echo '<tr>';
-                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . '</td><td>' . $rows['phone_number']. $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' .. $rows['notes'] . '</td><td>' .. $rows['insurance'] . '</td><td>' . $rows['physician'];
-                        echo '</td></tr>';
-                     }
+//                    foreach($pquery as $rows){
+//                        echo '<tr>';
+//                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . '</td><td>' . $rows['phone_number']. $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' .. $rows['notes'] . '</td><td>' .. $rows['insurance'] . '</td><td>' . $rows['physician'];
+//                        echo '</td></tr>';
+//                     }
                     ?>
 
                     </tbody>
                     </table>
-
-             <?php echo "Hello from new patient"; ?>
             </div>
             </div>
         </main>
