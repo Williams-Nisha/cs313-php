@@ -115,7 +115,7 @@ require('db_connection.php');
                   <b>Birthdate: Format(Year-Month-Day) </b><span class="error">*<?= $birthdateErr;?></span><br>
                   <input type="text" name="birthdate" value="<?=$birthdate?>"><br><br>   
                  <b>Preferred Doctor: First Name</b><br>
-                  <input type="text" name="pref_doctor" value="<?=$doctor?>"><br><br> 
+                  <input type="text" name="doctor" value="<?=$doctor?>"><br><br> 
                   <b>Insurance Information: </b><br>
                   <input type="text" name="insurance" value="<?=$insurance?>"><br><br>           
                   <b>Notes: </b><br>
