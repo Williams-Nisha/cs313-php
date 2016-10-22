@@ -20,12 +20,12 @@ require('db_connection.php');
                 <option value="list">All Patients</option> 
                   <h2>Patient Information</h2>
                    <?php
-                    $pquery = $db->query('SELECT * FROM patient')->fetchAll();
+                    $query = $db->query('SELECT * FROM patient')->fetchAll();
                 
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $patient = $_POST['patient'];
                         if($patient != 'list'){
-                            $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                            $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                         }
                     }
 
@@ -62,7 +62,7 @@ require('db_connection.php');
                         </thead>
                         <tbody>
                     <?php
-                    foreach($pquery as $rows){
+                    foreach($query as $rows){
                         echo '<tr>';
                         echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['insurance_id'] . '</td><td>' . $rows['physician_id'];
                         echo '</td></tr>';
