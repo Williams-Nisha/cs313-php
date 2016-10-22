@@ -16,6 +16,7 @@ require('db_connection.php');
                <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                <div class="information">
                <h4>Patient List</h4>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <select name="patient">
                 <option value="list">All Patients</option> 
                   <h2>Patient Information</h2>
@@ -43,6 +44,7 @@ require('db_connection.php');
                     ?>       
                     <input type="submit" value="Search"/>
                 </select>
+                   </form>
                     <table>
                         <thead>
                            <tr>
