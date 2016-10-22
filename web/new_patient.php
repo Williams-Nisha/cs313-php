@@ -58,13 +58,16 @@ require('db_connection.php');
             if($_POST["doctor"]){
                 $doctor = $_POST["doctor"];
             }
+            if($_POST["insurance"]){
+                $insurance = $_POST["insurance"];
+            }
             if($_POST["notes"]){
                 $notes = $_POST["notes"];
             }
         }
     }
     echo 'after post validation';
-          var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $birthdate, $doctor, $insurance, $notes);
+          var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
                 
                 $db->exec("
