@@ -92,6 +92,7 @@ require('db_connection.php');
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                 <input type="hidden" name="action" value="patient_form">
+                <input type="hidden" name="form" value="patient_form">
                  <b>First Name: </b><span><?= $fnameErr;?></span><br>
                   <input type="text" name="first_name" value="<?=$fname?>"><br><br>
                   <b>Last Name: </b><span><?= $lnameErr;?></span><br>
