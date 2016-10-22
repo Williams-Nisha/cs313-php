@@ -1,9 +1,5 @@
 <?php
 
-if (!session_start()) {
-    session_start();
-}
-
 $session_path = $_SERVER['DOCUMENT_ROOT'] . '/cgi-bin/tmp';
 session_save_path($session_path);
 
@@ -46,6 +42,7 @@ switch ($action) {
     case 'go_appointment':
         include $site_root . '/appointment.php';
         break;
+}
 //    case 'patientform':
 //        //echo 'hello';
 //        $userID = filter_input(INPUT_POST, 'user_id',FILTER_SANITIZE_NUMBER_INT);
@@ -168,7 +165,6 @@ switch ($action) {
 //        include $site_root . '/admin-tools.php';
 //        break;
     
-}
     ?>    
 
 <!--

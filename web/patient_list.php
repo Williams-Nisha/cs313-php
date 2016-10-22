@@ -14,7 +14,7 @@ require('db_connection.php');
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php'; ?>
         </header>
         <main>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app.php'; ?>
         <?php
         $echo 'Hello from patient list';
         ?>
