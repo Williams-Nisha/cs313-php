@@ -17,7 +17,7 @@ require('db_connection.php');
                 <div class="information">
                 <?php echo 'This will show the doctor''s schedules';?>
                 <h4>Doctor Schedules</h4>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
         <option value="all">All Doctors</option> 
              <h2>Doctor Information</h2>
