@@ -74,7 +74,7 @@ require('db_connection.php');
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', '(SELECT insurance_id FROM insurance WHERE name='$insurance')', '(SELECT physician_id FROM physician WHERE first_name='$doctor')'");
                                              
     echo "after insert statement";
-                $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
+                $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
                 $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
             }
           var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
