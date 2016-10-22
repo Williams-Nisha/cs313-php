@@ -13,9 +13,11 @@ if (isset($_POST['action'])) {
 } else {
     $action = 'go_home';
 }
-
+echo "almost to case statement";
 switch ($action) {
+        echo "case1";
     case 'go_home':
+        echo "case2";
         include $site_root . '/appointment_app.html';
         break;
     case 'go_about':
