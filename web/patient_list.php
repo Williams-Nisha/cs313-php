@@ -12,9 +12,11 @@ require('db_connection.php');
     <body>
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php'; ?>
         <main class="content">
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app.php'; ?>
+              <div class="app">
+               <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
+            </div>
         <?php
-        echo 'Hello from patient list';
+            echo 'Hello from patient list';
         ?>
         </main>
     </body>

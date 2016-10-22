@@ -40,6 +40,11 @@ thead {
 td,th {
     padding: 5px;
 }
+.app {
+    margin-top: 50px;
+    min-height: 500px;
+    border: 1px #333 solid;
+}
 .app_links {
     list-style: none;
     color: #485460;

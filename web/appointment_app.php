@@ -13,8 +13,9 @@ require('db_connection.php');
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php'; ?>
             
         <main class="content">
+          <div class="app">
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
-
+            </div>
         </main>
     </body>
 </html>

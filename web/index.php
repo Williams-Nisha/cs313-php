@@ -25,11 +25,11 @@ switch ($action) {
         include $site_root . '/assignments.html';
         break;
     case 'go_new_patient':
-        include $site_root . '/new_patient.html';
+        include $site_root . '/new_patient.php';
         break;
     case 'go_patient_list':
             case 'go_assignments':
-        include $site_root . '/patient_list.html';
+        include $site_root . '/patient_list.php';
         break;
     case 'go_doctor_list':
         include $site_root . '/doctor_list.php';
