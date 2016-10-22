@@ -49,11 +49,11 @@ td,th {
 .app_links {
     list-style-type: none;
     background-color: #485460;
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
 .app_links li {
-    display: inline;
     float: left;
 }
 .app_links li a {
@@ -63,9 +63,10 @@ td,th {
     text-decoration: none;
     padding: 20px;
     text-align: center;
+    display: inline-block;
 }
 .app_links li a:hover {
-    background-color: #111;
+    background-color: #66798c;
 }
 
 .btn-success {
