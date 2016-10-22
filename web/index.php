@@ -1,9 +1,7 @@
 <?php
-echo $_SERVER['DOCUMENT_ROOT'];
-$session_path = $_SERVER['DOCUMENT_ROOT'] . '/cgi-bin/tmp';
-session_save_path($session_path);
 
-ini_set('display_errors', 1);
+echo $_SERVER['DOCUMENT_ROOT'];
+
 $site_root = $_SERVER['DOCUMENT_ROOT'];
 include $site_root . '/db_connection.php';
 
@@ -18,7 +16,7 @@ if (isset($_POST['action'])) {
 
 switch ($action) {
     case 'go_home':
-        include $site_root . '/index.html';
+        include $site_root . '/appointment_app.html';
         break;
     case 'go_about':
         include $site_root . '/about_me.html';
