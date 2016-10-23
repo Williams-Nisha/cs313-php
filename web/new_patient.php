@@ -145,6 +145,8 @@ ini_set('display_errors', true);
                         //query for printing new patient information
                if (isset($_POST) && !empty($_POST)){
                         $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+               } else {
+                   echo 'Don''t have access to it';
                }
                              
                 ?>
