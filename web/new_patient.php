@@ -150,7 +150,7 @@ require('db_connection.php');
                 
                     $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
                     $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
-            }
+            
                 
                         ?>
                     </tbody>
