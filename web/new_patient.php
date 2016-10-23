@@ -74,7 +74,7 @@ ini_set('display_errors', true);
                 echo 'before insert statement';
                 $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
-                               
+                $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
     echo "after insert statement";
 ?>
 <html>
@@ -143,8 +143,8 @@ ini_set('display_errors', true);
                         <tbody>
                         <?php
                         //query for printing new patient information
-                        echo "$patient";
-                        $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();//removing variables                
+                       
+                    //removing variables                
                 ?>
                         <?php
 //                    foreach($pquery as $rows){
