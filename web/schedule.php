@@ -17,29 +17,29 @@ require('db_connection.php');
                 <div class="information">
                   <h4>Doctor List</h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                   <select name="doctor">
-        <option value="all">All Patients</option> 
+                   <select name="physician">
+        <option value="all">All Schedules</option> 
              <h2>Appointment Information</h2>
              <?php
-                $query = $db->query('SELECT * FROM patient')->fetchAll();
+                $query = $db->query('SELECT * FROM schedule')->fetchAll();
                 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $patient = $_POST['patient'];
-                    if($patient != 'all'){
-                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                    $physician = $_POST['physician'];
+                    if($physician != 'all'){
+                        $query = $db->query("SELECT * FROM physician WHERE first_name='$physician'")->fetchAll();
                     }
                 }
 
-                foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $doctor){
+                foreach($db->query('SELECT DISTINCT first_name FROM physician')->fetchAll() as $physician){
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        if($_POST["patient"] == $patient["first_name"]){ 
+                        if($_POST["physician"] == $physician["first_name"]){ 
                             $selected = "selected='selected'";
                         }
                         else{
                             $selected = "";
                         }
                     }
-                    echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
+                    echo '<option value="' . $physician['first_name'] . '"' . $selected . '>' . $physician['first_name'] . '</option>';
                 }
                 ?>       
                 <input type="submit" value="Search"/>
