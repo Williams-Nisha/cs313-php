@@ -15,32 +15,31 @@ require('db_connection.php');
               <div class="app">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
-                <?php echo 'This will show the doctor''s schedules';?>
-                <h4>Doctor Schedules</h4>
-                  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                  <h4>Doctor List</h4>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
-        <option value="all">All Doctors</option> 
-             <h2>Doctor Information</h2>
+        <option value="all">All Patients</option> 
+             <h2>Appointment Information</h2>
              <?php
-                $query = $db->query('SELECT * FROM physician')->fetchAll();
+                $query = $db->query('SELECT * FROM patient')->fetchAll();
                 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $doctor = $_POST['doctor'];
-                    if($doctor != 'all'){
-                        $query = $db->query("SELECT * FROM physician WHERE first_name='$doctor'")->fetchAll();
+                    $patient = $_POST['patient'];
+                    if($patient != 'all'){
+                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
                     }
                 }
 
-                foreach($db->query('SELECT DISTINCT first_name FROM physician')->fetchAll() as $doctor){
+                foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $doctor){
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
-                        if($_POST["doctor"] == $doctor["first_name"]){ 
+                        if($_POST["patient"] == $patient["first_name"]){ 
                             $selected = "selected='selected'";
                         }
                         else{
                             $selected = "";
                         }
                     }
-                    echo '<option value="' . $doctor['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
+                    echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
                 }
                 ?>       
                 <input type="submit" value="Search"/>
@@ -54,14 +53,15 @@ require('db_connection.php');
                         <th>Last Name</th> 
                         <th>Date</th> 
                         <th>Start Time</th>
-                         <th>End Time</th>
+                        <th>End Time</th>
+                        <th>Doctor</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
 //                    foreach($query as $row){
 //                        echo '<tr>';
-//                        echo '<strong><td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'];
+//                        echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'] '</td><td>' . $row['physician_id'];
 //                        echo '</td></tr>';
 //                     }
                     ?>
@@ -69,8 +69,9 @@ require('db_connection.php');
             </table>
                 </div>
               </div>
-                <?php echo 'Hello from schedule page';?>
+        <?php
+            echo 'Hello from schedule page';
+        ?>
         </main>
     </body>
 </html>
-        
