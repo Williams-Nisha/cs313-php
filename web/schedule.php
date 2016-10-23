@@ -47,7 +47,6 @@ require('db_connection.php');
             <table>
                 <thead>
                     <tr>
-                        <th></th> 
                         <th>Doctor Name</th> 
                         <th>Start Time</th>
                         <th>End Time</th>
