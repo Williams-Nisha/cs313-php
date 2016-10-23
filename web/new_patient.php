@@ -70,8 +70,8 @@ require('db_connection.php');
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
                 $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
-            $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
-            $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
+                                 $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
+                  $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
                     $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
 ?>
 <html>
@@ -149,6 +149,7 @@ require('db_connection.php');
                         echo '<strong><td>' . '</td><td>'. $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['insurance_id'] . '</td><td>' . $rows['physician_id'];
                         echo '</td></tr>';
                      }
+                
             }
                 
                         ?>
