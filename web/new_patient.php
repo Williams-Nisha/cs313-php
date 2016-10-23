@@ -76,6 +76,7 @@ ini_set('display_errors', true);
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
                                
     echo "after insert statement";
+            }
 ?>
 <html>
     <head>
