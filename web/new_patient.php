@@ -1,12 +1,11 @@
 <?php
 require('db_connection.php');
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+//error_reporting(E_ALL);
+//ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
    $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = "";
-    echo 'Before post validation';
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'patient_form') {
             if(empty($_POST["first_name"])){
@@ -68,15 +67,10 @@ ini_set('display_errors', true);
             }
         }
     }
-    echo 'after post validation';
-          var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
-                echo 'before insert statement';
                 $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zipcode, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
                                  $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
-    echo "This is pquery: ". $pquery;
-            }
 ?>
 <html>
     <head>
@@ -148,16 +142,16 @@ ini_set('display_errors', true);
                     //removing variables                
                 ?>
                         <?php
-//                    foreach($pquery as $rows){
-//                        echo '<tr>';
-//                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . '</td><td>' . $rows['phone_number']. $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' .. $rows['notes'] . '</td><td>' . $rows['insurance'] . '</td><td>' . $rows['physician'];
-//                        echo '</td></tr>';
-//                     }
+                    foreach($pquery as $rows){
+                        echo '<tr>';
+                        echo '<strong><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['insurance_id'] . '</td><td>' . $rows['physician_id'];
+                        echo '</td></tr>';
+                     }
                 
-//                    $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
-//                    $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
-
-                    var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
+                    $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
+                    $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
+            }
+                
                         ?>
                     </tbody>
                     </table>
@@ -166,5 +160,3 @@ ini_set('display_errors', true);
         </main>
     </body>
 </html>
-
-
