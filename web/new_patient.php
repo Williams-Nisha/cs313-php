@@ -146,7 +146,7 @@ ini_set('display_errors', true);
                     <?php
                     foreach($pquery as $rows){
                         echo '<tr>';
-                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . '</td><td>' . $rows['phone_number']. $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['insurance'] . '</td><td>' . $rows['physician'];
+                        echo '<strong><td>' . '<td></td>' . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] .'</td><td>'. $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['insurance'] . '</td><td>' . $rows['physician'];
                         echo '</td></tr>';
                      }
                         $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
