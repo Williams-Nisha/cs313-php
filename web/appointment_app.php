@@ -15,6 +15,9 @@ require('db_connection.php');
         <main class="content">
           <div class="app">
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
+              <h2>Mountainland Family Medicine</h2>
+              <h4>Appointment Setting Application</h4>
+              <img src="images/medoffice.jpg" alt="Mountainland Family Medicine">
             </div>
         </main>
     </body>
