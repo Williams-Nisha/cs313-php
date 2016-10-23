@@ -15,10 +15,10 @@ require('db_connection.php');
         <main class="content">
           <div class="app">
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
-              <h2>Mountainland Family Medicine</h2>
-              <h4>Appointment Setting Application</h4>
+              <h2 class="center">Mountainland Family Medicine</h2>
+              <h4 class="center">Appointment Setting Application</h4>
               <div class="preview">
-                  <img class="center" src="images/medoffice.jpg" alt="Mountainland Family Medicine">    
+                  <img class="expand" src="images/medoffice.jpg" alt="Mountainland Family Medicine">    
             </div>
             </div>
         </main>

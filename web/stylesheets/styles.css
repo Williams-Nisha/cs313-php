@@ -88,6 +88,10 @@ td,th {
 .error {
     color:red;
 }
+.expand {
+    height: 100%;
+    width: 100%;
+}
 .hello {
     margin-left: 15px;
 }
