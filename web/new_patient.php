@@ -143,7 +143,7 @@ ini_set('display_errors', true);
                         <tbody>
                         <?php
                         //query for printing new patient information
-        
+                        echo "$patient";
                         $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();//removing variables                
                 ?>
                         <?php
