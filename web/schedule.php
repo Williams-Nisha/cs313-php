@@ -20,7 +20,7 @@ require('db_connection.php');
                    <select name="physician">
         <option value="all">All Schedules</option> 
              <?php
-                $query = $db->query('SELECT * FROM schedule')->fetchAll();
+                $query = $db->query('SELECT * FROM physician')->fetchAll();
                 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $physician = $_POST['physician'];
@@ -56,7 +56,10 @@ require('db_connection.php');
                 <tbody>
                 <?php
                     foreach($query as $row){
-                    echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'] . '"</td>';
+                    echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
+                    foreach($db->query("SELECT * FROM schedule s JOIN physician p ON s.schedule_id = p.physician_id WHERE physician_id='" . $row['physician_id'] . "'") as $schedule){
+                        echo '<td>' . $schedule['start_time'] . "</td></td>" . $schedule['end_time'];
+                    }
                     echo '</td></tr>';
             }
                     ?>
