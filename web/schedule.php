@@ -15,11 +15,10 @@ require('db_connection.php');
               <div class="app">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
-                  <h4>Doctor List</h4>
+                  <h4>Doctor Schedules</h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="physician">
         <option value="all">All Schedules</option> 
-             <h2>Appointment Information</h2>
              <?php
                 $query = $db->query('SELECT * FROM schedule')->fetchAll();
                 
@@ -49,8 +48,7 @@ require('db_connection.php');
                 <thead>
                     <tr>
                         <th></th> 
-                        <th>First Name</th> 
-                        <th>Last Name</th> 
+                        <th>Doctor Name</th>
                         <th>Date</th> 
                         <th>Start Time</th>
                         <th>End Time</th>
@@ -59,11 +57,10 @@ require('db_connection.php');
                 </thead>
                 <tbody>
                 <?php
-//                    foreach($query as $row){
-//                        echo '<tr>';
-//                        echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'] '</td><td>' . $row['physician_id'];
-//                        echo '</td></tr>';
-//                     }
+                    foreach($query as $row){
+                    echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'] . '"</td>';
+                    echo '</td></tr>';
+            }
                     ?>
                 </tbody>
             </table>
