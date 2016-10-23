@@ -143,15 +143,18 @@ ini_set('display_errors', true);
                         <tbody>
                         <?php
                         //query for printing new patient information
-                        $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();//removing variables                
+               if (isset($_POST) && !empty($_POST)){
+                        $pquery = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+               }
+                             
                 ?>
-                    <?php
+                        <?php
 //                    foreach($pquery as $rows){
 //                        echo '<tr>';
 //                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . '</td><td>' . $rows['phone_number']. $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' .. $rows['notes'] . '</td><td>' . $rows['insurance'] . '</td><td>' . $rows['physician'];
 //                        echo '</td></tr>';
 //                     }
-                
+                //removing variables   
                     $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
                     $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
             }
