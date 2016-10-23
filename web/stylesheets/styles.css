@@ -77,6 +77,9 @@ td,th {
 .bold {
     font-weight: bold;
 }
+.center {
+    text-align: center;
+}
 .content {
     width: 90%; 
     padding: 0 25px;
@@ -154,6 +157,10 @@ td,th {
     background-position: top center;
     background-repeat: no-repeat;
     background-size: 85%;
+}
+.preview {
+   height: 800px;
+    width: 800px;
 }
 .thumbnail {
     height: 580px;
