@@ -76,6 +76,7 @@ ini_set('display_errors', true);
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
                                  $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
     echo "after insert statement";
+            }
 ?>
 <html>
     <head>
@@ -153,9 +154,9 @@ ini_set('display_errors', true);
 //                        echo '</td></tr>';
 //                     }
                 
-                    $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
-                    $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
-            }
+//                    $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
+//                    $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
+
                     var_dump($fname,$lname,$staddress,$city, $state, $zipcode, $phoneNumber, $birthdate, $doctor, $insurance, $notes);
                         ?>
                     </tbody>
