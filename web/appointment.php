@@ -61,7 +61,7 @@ require('db_connection.php');
                     <?php
                     foreach($query as $rows){
                         echo '<tr>';
-                        echo '<td></td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows[TRUNC('appointment_date'), 'MONTH'] . '</td><td>' . $rows[TRUNC('appointment_date'), 'HH12'] . '</td><td>' . $rows[TRUNC('appointment_date'), 'HH12']. '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['physician_id'];
+                        echo '<td></td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']. '</td><td>' . $rows['appointment_date'] . '</td><td>' . $rows['appointment_date']. '</td><td>' . $rows['physician_id'];
                       echo '</td></tr>';
                      }
                     ?>
@@ -75,4 +75,3 @@ require('db_connection.php');
         </main>
     </body>
 </html>
-        
