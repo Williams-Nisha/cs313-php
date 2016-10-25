@@ -58,12 +58,12 @@ require('db_connection.php');
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-//                    foreach($query as $row){
-//                        echo '<tr>';
-//                        echo '<strong><td>' . $row['patient_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['date'] . '</td><td>' . $row['start_time'] . '</td><td>' . $row['end_time'] '</td><td>' . $row['physician_id'];
-//                        echo '</td></tr>';
-//                     }
+                    <?php
+                    foreach($query as $rows){
+                        echo '<tr>';
+                        echo '<td></td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows[TRUNC('appointment_date'), 'MONTH'] . '</td><td>' . $rows[TRUNC('appointment_date'), 'HH12'] . '</td><td>' . $rows[TRUNC('appointment_date'), 'HH12']. '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['physician_id'];
+                      echo '</td></tr>';
+                     }
                     ?>
                 </tbody>
             </table>
