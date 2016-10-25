@@ -38,7 +38,7 @@ require('db_connection.php');
                             $selected = "";
                         }
                     }
-                    echo '<option value="' . $physician['first_name'] . '"' . $selected . '>' . $physician['first_name'] . '</option>';
+                    echo '<option value="' . $physician['first_name'] .' '. $physician['last_name'] '"' . $selected . '>' . $physician['first_name'] .' '. $physician['last_name'] . '</option>';
                 }
                 ?>       
                 <input type="submit" value="Search"/>
@@ -56,7 +56,7 @@ require('db_connection.php');
                 <?php
                     foreach($query as $row){
                     echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
-                    foreach($db->query("SELECT * FROM schedule s JOIN physician p ON s.physician_id = p.physician_id WHERE physician_id='" . $row['physician_id'] . "'") as $schedule){
+                    foreach($db->query("SELECT * FROM schedule s RIGHT OUTER JOIN physician p ON s.physician_id = p.physician_id WHERE physician_id='" . $row['physician_id'] . "'") as $schedule){
                         echo '<td>' . $schedule['start_time'] . "</td></td>" . $schedule['end_time'];
                     }
                     echo '</td></tr>';
