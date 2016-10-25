@@ -38,7 +38,7 @@ require('db_connection.php');
                             $selected = "";
                         }
                     }
-                    echo '<option value="' . $physician['first_name'] .' '. $physician['last_name'] '"' . $selected . '>' . $physician['first_name'] .' '. $physician['last_name'] . '</option>';
+                    echo '<option value="' . $physician['first_name'] . '"' . $selected . '>' . $physician['first_name'] . '</option>';
                 }
                 ?>       
                 <input type="submit" value="Search"/>
