@@ -26,7 +26,7 @@ require('db_connection.php');
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $patient = $_POST['patient'];
                     if($patient != 'all'){
-                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient' AND patient_id")->fetchAll();
                     }
                 }
 
@@ -48,7 +48,6 @@ require('db_connection.php');
             <table>
                 <thead>
                     <tr>
-                        <th></th> 
                         <th>First Name</th> 
                         <th>Last Name</th> 
                         <th>Date</th> 
