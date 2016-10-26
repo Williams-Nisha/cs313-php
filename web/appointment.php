@@ -48,8 +48,7 @@ require('db_connection.php');
             <table>
                 <thead>
                     <tr>
-                        <th>First Name</th> 
-                        <th>Last Name</th> 
+                        <th>Patient Name</th>  
                         <th>Date</th> 
                         <th>Start Time</th>
                         <th>End Time</th>
