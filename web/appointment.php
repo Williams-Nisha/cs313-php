@@ -61,7 +61,7 @@ require('db_connection.php');
                     foreach($query as $row){
                     echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
                     foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['patient_id'] . "'") as $appointment){
-                        echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" $appointment['physician_id'] ;
+                        echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
                     }
                     echo '</td></tr>';
             }
