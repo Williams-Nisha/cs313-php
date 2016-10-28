@@ -82,14 +82,14 @@ ini_set('display_errors', true);
                  
                 <h2>Current Appointments</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                   <select name="doctor">
+                   <select name="patient">
         <option value="all">All Patients</option> 
              <h2>Appointment Information</h2>
              <?php
                 $query = $db->query('SELECT * FROM patient')->fetchAll();
                 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $patient = $_POST['$fname'];
+                    $patient = $_POST['fname'];
                     if($patient != 'all'){
                         $query = $db->query("SELECT * FROM patient WHERE first_name='$patient' AND last_name="$lname")->fetchAll();
                     }
