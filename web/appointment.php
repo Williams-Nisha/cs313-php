@@ -1,6 +1,50 @@
 <?php
 require('db_connection.php');
 ?>
+<?php
+   $fname = $lname = $adate = $atime = $doctor = "";
+   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
+  
+       if (isset($_POST) && !empty($_POST)){
+        if($_POST['form'] == 'appointment_form') {
+            if(empty($_POST["first_name"])){
+                $fnameErr = "First name is required";
+            }
+            else{
+                $fname = $_POST["first_name"];
+            }
+            if(empty($_POST["last_name"])){
+                $lnameErr = "Last name is required";
+
+            }
+             if(empty($_POST["appointment_date"])){
+                $zipcodeErr = "Appointment Date is required";
+            }
+            else{
+                $zipcode = $_POST["appointment_date"];
+            }
+            if(empty($_POST["appointment_time"])){
+                $phoneErr = "Appointment start time is required";
+            }
+            else{
+                $phoneNumber = $_POST["appointment_time"];
+            }
+            if(empty($_POST["doctor"])){
+                $birthdateErr = "Doctor is required";
+            }
+            else{
+                $birthdate = $_POST["doctor"];
+            }
+        }
+    }
+          
+            if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
+                $db->exec("INSERT INTO appointment (appointment_id,first_name, last_name, appointment_date, appointment_time, physician_id, patient_id) VALUES 
+                (DEFAULT, '$fname', '$lname', '$adate', '$atime', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM  WHERE name='$fname' AND last_name = "$lname" )");
+                               
+                $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
+            }
+?>
 <html>
      <head>
         <title>
@@ -46,7 +90,8 @@ require('db_connection.php');
         </select>
             </form>
             <h2>Add New Appointment</h2>
-            <form action="">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                <input type="hidden" name="form" value="appointment_form" />
                 <b>First Name: </b><span class="error">*<?= $fnameErr;?></span><br>
                   <input type="text" name="first_name" value="<?=$fname?>"><br><br>
                 <b>Last Name: </b><span class="error">*<?= $lnameErr;?></span><br>
