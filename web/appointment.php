@@ -63,6 +63,22 @@ ini_set('display_errors', true);
               <div class="app">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
+                 <h2>Add New Appointment</h2>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                <input type="hidden" name="form" value="appointment_form" />
+                <b>First Name: </b><span class="error">*<?= $fnameErr;?></span><br>
+                  <input type="text" name="first_name" value="<?=$fname?>"><br><br>
+                <b>Last Name: </b><span class="error">*<?= $lnameErr;?></span><br>
+                  <input type="text" name="last_name" value="<?=$lname?>"><br><br>
+                <b>Appointment Date: </b><span class="error">*<?= $adateErr;?></span><br>
+                  <input type="text" name="appointment_date" value="<?=$adate?>"><br><br>
+                <b>Appointment Time: </b><span class="error">*<?= $atimeErr;?></span><br>
+                  <input type="text" name="appointment_time" value="<?=$atime?>"><br><br>
+                <b>Doctor: </b><span class="error">*<?= $doctorErr;?></span><br>
+                  <input type="text" name="doctor" value="<?=$doctor?>"><br><br>
+                <input type="submit">
+            </form>
+                 
                   <h4>Appointment List</h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
@@ -92,21 +108,6 @@ ini_set('display_errors', true);
                 ?>       
                 <input type="submit" value="Search"/>
         </select>
-            </form>
-            <h2>Add New Appointment</h2>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                <input type="hidden" name="form" value="appointment_form" />
-                <b>First Name: </b><span class="error">*<?= $fnameErr;?></span><br>
-                  <input type="text" name="first_name" value="<?=$fname?>"><br><br>
-                <b>Last Name: </b><span class="error">*<?= $lnameErr;?></span><br>
-                  <input type="text" name="last_name" value="<?=$lname?>"><br><br>
-                <b>Appointment Date: </b><span class="error">*<?= $adateErr;?></span><br>
-                  <input type="text" name="appointment_date" value="<?=$adate?>"><br><br>
-                <b>Appointment Time: </b><span class="error">*<?= $atimeErr;?></span><br>
-                  <input type="text" name="appointment_time" value="<?=$atime?>"><br><br>
-                <b>Doctor: </b><span class="error">*<?= $doctorErr;?></span><br>
-                  <input type="text" name="doctor" value="<?=$doctor?>"><br><br>
-                <input type="submit">
             </form>
             
             <h2>Current Appointments</h2>
