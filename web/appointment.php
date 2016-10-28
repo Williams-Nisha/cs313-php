@@ -95,7 +95,7 @@ ini_set('display_errors', true);
                     }
                 }
 
-                foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $doctor){
+                foreach($db->query('SELECT DISTINCT first_name FROM patient')->fetchAll() as $patient){
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if($_POST["patient"] == $patient["first_name"]){ 
                             $selected = "selected='selected'";
@@ -104,7 +104,7 @@ ini_set('display_errors', true);
                             $selected = "";
                         }
                     }
-                    echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $doctor['first_name'] . '</option>';
+                    echo '<option value="' . $patient['first_name'] . '"' . $selected . '>' . $patient['first_name'] . '</option>';
                 }
                 ?>       
                 <input type="submit" value="Search"/>
