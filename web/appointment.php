@@ -15,7 +15,7 @@ require('db_connection.php');
               <div class="app">
                 <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
                 <div class="information">
-                  <h4>Doctor List</h4>
+                  <h4>Appointment List</h4>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
         <option value="all">All Patients</option> 
@@ -45,6 +45,18 @@ require('db_connection.php');
                 <input type="submit" value="Search"/>
         </select>
             </form>
+            <h2>Add New Appointment</h2>
+            <form action="">
+                <b>First Name:</b><input type="text" name="appointment" value="first_name">
+                <b>Last Name</b><input type="text" name="appointment" value="last_name">
+                <b>Appointment Date:</b><input type="text" name="appointment" value="ppointment_date">
+                <b>Appointment Time:</b><input type="text"name="appointment"  value="appointment_time">
+                <b>Doctor:</b><input type="text"  name="appointment" value="doctor">
+                <input type="submit">
+            </form>
+            
+            <h2>Current Appointments</h2>
+            
             <table>
                 <thead>
                     <tr>
