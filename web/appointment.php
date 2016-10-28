@@ -47,11 +47,11 @@ require('db_connection.php');
             </form>
             <h2>Add New Appointment</h2>
             <form action="">
-                <b>First Name:</b><input type="text" name="appointment" value="first_name">
-                <b>Last Name</b><input type="text" name="appointment" value="last_name">
-                <b>Appointment Date:</b><input type="text" name="appointment" value="ppointment_date">
-                <b>Appointment Time:</b><input type="text"name="appointment"  value="appointment_time">
-                <b>Doctor:</b><input type="text"  name="appointment" value="doctor">
+                <b>First Name:</b><input type="text" name="appointment" value="first_name"><br>
+                <b>Last Name</b><input type="text" name="appointment" value="last_name"><br>
+                <b>Appointment Date:</b><input type="text" name="appointment" value="appointment_date"><br>
+                <b>Appointment Time:</b><input type="text"name="appointment"  value="appointment_time"><br>
+                <b>Doctor:</b><input type="text"  name="appointment" value="doctor"><br>
                 <input type="submit">
             </form>
             
