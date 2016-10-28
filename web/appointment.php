@@ -47,7 +47,7 @@ ini_set('display_errors', true);
 
 //                    $pquery = $db->query("SELECT * FROM appointment")->fetchAll();
 ////                }
-//            }
+            }
 ?>
 
 <html>
