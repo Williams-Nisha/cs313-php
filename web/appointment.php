@@ -37,10 +37,10 @@ ini_set('display_errors', true);
             else{
                 $doctor = $_POST["doctor"];
             }
+        }
             $timestamp = $adate . " " . $atime; 
             $hour = SELECT extract(hour from timestamp $timestamp);
             echo $hour;
-        }
     }
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
