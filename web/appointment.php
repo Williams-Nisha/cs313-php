@@ -132,7 +132,7 @@ ini_set('display_errors', true);
 //                    echo '</td></tr>';
 //                        }
 //            }
-                    foreach($pquery as $row){
+                    foreach($query as $row){
                 foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
                 echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
                 echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
