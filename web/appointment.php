@@ -42,12 +42,12 @@ ini_set('display_errors', true);
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
 //                if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
-//                    $db->exec("INSERT INTO appointment (appointment_id,first_name, last_name, appointment_date, appointment_time, physician_id, patient_id) VALUES 
-//                    (DEFAULT, '$fname', '$lname', '$adate', '$atime', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM patient WHERE name='$fname' AND last_name = "$lname" )");
+                    $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
+                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM patient WHERE name='$fname' AND last_name = "$lname" )");
 
-                    $pquery = $db->query("SELECT * FROM appointment")->fetchAll();
-//                }
-            }
+//                    $pquery = $db->query("SELECT * FROM appointment")->fetchAll();
+////                }
+//            }
 ?>
 <html>
      <head>
