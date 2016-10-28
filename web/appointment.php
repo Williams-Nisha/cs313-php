@@ -124,11 +124,13 @@ ini_set('display_errors', true);
                 <tbody>
                      <?php
                     foreach($query as $row){
+                        if(select exists(select 1 from appointment where patient_id=12)){
                     echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
                     foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['patient_id'] . "'") as $appointment){
                         echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
                     }
                     echo '</td></tr>';
+                        }
             }
                     ?>
                 </tbody>
