@@ -6,7 +6,7 @@ ini_set('display_errors', true);
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
    $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
-  
+
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'appointment_form') {
             if(empty($_POST["first_name"])){
@@ -37,6 +37,8 @@ ini_set('display_errors', true);
             else{
                 $doctor = $_POST["doctor"];
             }
+            $hour = SELECT extract(hour from timestamp '$adate');
+            echo $hour;
         }
     }
           
