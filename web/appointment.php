@@ -41,10 +41,12 @@ ini_set('display_errors', true);
     }
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
-                $db->exec("INSERT INTO appointment (appointment_id,first_name, last_name, appointment_date, appointment_time, physician_id, patient_id) VALUES 
-                (DEFAULT, '$fname', '$lname', '$adate', '$atime', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM patient WHERE name='$fname' AND last_name = "$lname" )");
-                               
-                $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
+                if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'form2'){
+                    $db->exec("INSERT INTO appointment (appointment_id,first_name, last_name, appointment_date, appointment_time, physician_id, patient_id) VALUES 
+                    (DEFAULT, '$fname', '$lname', '$adate', '$atime', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM patient WHERE name='$fname' AND last_name = "$lname" )");
+
+                    $pquery = $db->query("SELECT * FROM appointment WHERE first_name='$fname'")->fetchAll();
+                }
             }
 ?>
 <html>
@@ -100,7 +102,7 @@ ini_set('display_errors', true);
                   <input type="text" name="last_name" value="<?=$lname?>"><br><br>
                 <b>Appointment Date: </b><span class="error">*<?= $adateErr;?></span><br>
                   <input type="text" name="appointment_date" value="<?=$adate?>"><br><br>
-                <b>Appointment Time: </b><span class="error">*<?= $atimeError;?></span><br>
+                <b>Appointment Time: </b><span class="error">*<?= $atimeErr;?></span><br>
                   <input type="text" name="appointment_time" value="<?=$atime?>"><br><br>
                 <b>Doctor: </b><span class="error">*<?= $doctorErr;?></span><br>
                   <input type="text" name="doctor" value="<?=$doctor?>"><br><br>
