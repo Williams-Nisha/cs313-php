@@ -82,16 +82,16 @@ ini_set('display_errors', true);
                  
                 <h2>Current Appointments</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                   <select name="patient">
+                   <select name="doctor">
         <option value="all">All Patients</option> 
              <h2>Appointment Information</h2>
              <?php
                 $query = $db->query('SELECT * FROM patient')->fetchAll();
                 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $patient = $_POST['fname'];
+                    $patient = $_POST['patient'];
                     if($patient != 'all'){
-                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient' AND last_name="$lname")->fetchAll();
+                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient' AND patient_id")->fetchAll();
                     }
                 }
 
@@ -132,7 +132,7 @@ ini_set('display_errors', true);
 //                    echo '</td></tr>';
 //                        }
 //            }
-                    foreach($query as $row){
+                    foreach($pquery as $row){
                 foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
                 echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
                 echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
