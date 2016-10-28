@@ -37,8 +37,8 @@ ini_set('display_errors', true);
             else{
                 $doctor = $_POST["doctor"];
             }
-            $hour = SELECT extract(hour from timestamp '$adate');
-            echo $hour;
+//            $hour = SELECT extract(hour from timestamp '$adate');
+//            echo $hour;
         }
     }
           
