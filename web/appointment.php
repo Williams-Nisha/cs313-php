@@ -4,50 +4,50 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
 <?php
-   $fname = $lname = $adate = $atime = $doctor = "";
-   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
-  
-       if (isset($_POST) && !empty($_POST)){
-        if($_POST['form'] == 'appointment_form') {
-            if(empty($_POST["first_name"])){
-                $fnameErr = "First name is required";
-            }
-            else{
-                $fname = $_POST["first_name"];
-            }
-            if(empty($_POST["last_name"])){
-                $lnameErr = "Last name is required";
-
-            }
-             if(empty($_POST["appointment_date"])){
-                $adateErr = "Appointment Date is required";
-            }
-            else{
-                $adate = $_POST["appointment_date"];
-            }
-            if(empty($_POST["appointment_time"])){
-                $atimeErr = "Appointment start time is required";
-            }
-            else{
-                $atime = $_POST["appointment_time"];
-            }
-            if(empty($_POST["doctor"])){
-                $doctorErr = "Doctor is required";
-            }
-            else{
-                $doctor = $_POST["doctor"];
-            }
-        }
-    }
-          
-            if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
-                if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'form2'){
-                    $db->exec("INSERT INTO appointment (appointment_id,first_name, last_name, appointment_date, appointment_time, physician_id, patient_id) VALUES 
-                    (DEFAULT, '$fname', '$lname', '$adate', '$atime', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM patient WHERE name='$fname' AND last_name = "$lname" )");
-
-                    $pquery = $db->query("SELECT * FROM appointment WHERE first_name='$fname'")->fetchAll();
-                }
-            }
+//   $fname = $lname = $adate = $atime = $doctor = "";
+//   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
+//  
+//       if (isset($_POST) && !empty($_POST)){
+//        if($_POST['form'] == 'appointment_form') {
+//            if(empty($_POST["first_name"])){
+//                $fnameErr = "First name is required";
+//            }
+//            else{
+//                $fname = $_POST["first_name"];
+//            }
+//            if(empty($_POST["last_name"])){
+//                $lnameErr = "Last name is required";
+//
+//            }
+//             if(empty($_POST["appointment_date"])){
+//                $adateErr = "Appointment Date is required";
+//            }
+//            else{
+//                $adate = $_POST["appointment_date"];
+//            }
+//            if(empty($_POST["appointment_time"])){
+//                $atimeErr = "Appointment start time is required";
+//            }
+//            else{
+//                $atime = $_POST["appointment_time"];
+//            }
+//            if(empty($_POST["doctor"])){
+//                $doctorErr = "Doctor is required";
+//            }
+//            else{
+//                $doctor = $_POST["doctor"];
+//            }
+//        }
+//    }
+//          
+//            if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
+//                if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'form2'){
+//                    $db->exec("INSERT INTO appointment (appointment_id,first_name, last_name, appointment_date, appointment_time, physician_id, patient_id) VALUES 
+//                    (DEFAULT, '$fname', '$lname', '$adate', '$atime', (SELECT physician_id FROM physician WHERE name='$doctor'), (SELECT patient_id FROM patient WHERE name='$fname' AND last_name = "$lname" )");
+//
+//                    $pquery = $db->query("SELECT * FROM appointment WHERE first_name='$fname'")->fetchAll();
+//                }
+//            }
 ?>
 <html>
      <head>
