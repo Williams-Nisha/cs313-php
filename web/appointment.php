@@ -45,8 +45,8 @@ ini_set('display_errors', true);
                     $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                     (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))");
 
-                    $pquery = $db->query("SELECT * FROM appointment")->fetchAll();
                 }
+                 $pquery = $db->query("SELECT * FROM appointment")->fetchAll();
             }
 ?>
 
