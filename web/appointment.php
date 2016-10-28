@@ -89,9 +89,9 @@ ini_set('display_errors', true);
                 $query = $db->query('SELECT * FROM patient')->fetchAll();
                 
                 if($_SERVER["REQUEST_METHOD"] == "POST"){
-                    $patient = $_POST['patient'];
+                    $patient = $_POST['$fname'];
                     if($patient != 'all'){
-                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient' AND patient_id")->fetchAll();
+                        $query = $db->query("SELECT * FROM patient WHERE first_name='$patient' AND last_name="$lname")->fetchAll();
                     }
                 }
 
