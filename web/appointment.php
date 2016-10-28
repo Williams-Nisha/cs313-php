@@ -4,41 +4,41 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
 <?php
-//   $fname = $lname = $adate = $atime = $doctor = "";
-//   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
-//  
-//       if (isset($_POST) && !empty($_POST)){
-//        if($_POST['form'] == 'appointment_form') {
-//            if(empty($_POST["first_name"])){
-//                $fnameErr = "First name is required";
-//            }
-//            else{
-//                $fname = $_POST["first_name"];
-//            }
-//            if(empty($_POST["last_name"])){
-//                $lnameErr = "Last name is required";
-//
-//            }
-//             if(empty($_POST["appointment_date"])){
-//                $adateErr = "Appointment Date is required";
-//            }
-//            else{
-//                $adate = $_POST["appointment_date"];
-//            }
-//            if(empty($_POST["appointment_time"])){
-//                $atimeErr = "Appointment start time is required";
-//            }
-//            else{
-//                $atime = $_POST["appointment_time"];
-//            }
-//            if(empty($_POST["doctor"])){
-//                $doctorErr = "Doctor is required";
-//            }
-//            else{
-//                $doctor = $_POST["doctor"];
-//            }
-//        }
-//    }
+   $fname = $lname = $adate = $atime = $doctor = "";
+   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
+  
+       if (isset($_POST) && !empty($_POST)){
+        if($_POST['form'] == 'appointment_form') {
+            if(empty($_POST["first_name"])){
+                $fnameErr = "First name is required";
+            }
+            else{
+                $fname = $_POST["first_name"];
+            }
+            if(empty($_POST["last_name"])){
+                $lnameErr = "Last name is required";
+
+            }
+             if(empty($_POST["appointment_date"])){
+                $adateErr = "Appointment Date is required";
+            }
+            else{
+                $adate = $_POST["appointment_date"];
+            }
+            if(empty($_POST["appointment_time"])){
+                $atimeErr = "Appointment start time is required";
+            }
+            else{
+                $atime = $_POST["appointment_time"];
+            }
+            if(empty($_POST["doctor"])){
+                $doctorErr = "Doctor is required";
+            }
+            else{
+                $doctor = $_POST["doctor"];
+            }
+        }
+    }
 //          
 //            if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
 //                if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'form2'){
@@ -79,7 +79,7 @@ ini_set('display_errors', true);
                 <input type="submit">
             </form>
                  
-                  <h4>Appointment List</h4>
+                <h2>Current Appointments</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                    <select name="doctor">
         <option value="all">All Patients</option> 
@@ -109,8 +109,6 @@ ini_set('display_errors', true);
                 <input type="submit" value="Search"/>
         </select>
             </form>
-            
-            <h2>Current Appointments</h2>
             
             <table>
                 <thead>
