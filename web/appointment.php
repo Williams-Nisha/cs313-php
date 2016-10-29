@@ -174,7 +174,7 @@ ini_set('display_errors', true);
                 </thead>
                 <tbody>
                      <?php
-                    $sched_apts = $db->query('SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id');
+                    $sched_apts = $db->query('SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id')->fetchAll();
                     
                     foreach($sched_apts as apts){
                        echo '<tr><td>' . $apts['first_name'] . ' ' . $apts['last_name'] . '</td><td>' . $apts['appointment_date'];
