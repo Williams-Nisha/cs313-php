@@ -58,9 +58,15 @@ ini_set('display_errors', true);
                    
                     foreach($pquery as $appointment){
                         if(ROW_COUNT ){
-                            echo 'You have results!';   
+                            $timestamp = $adate . " " . $atime;
+                            if( $timestamp >= $appointment['start_date']){
+                                echo "time is bigger";
+                            }
                         } else {
-                            echo 'The table is empty';
+                            echo "time is smaller";
+//                            $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
+//                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
+                            
                         }
 //                        if($appointment.length > 0 &&){
 //                            echo 'You may create an appointment';
@@ -82,8 +88,6 @@ ini_set('display_errors', true);
 //                      
 //                }
                   
-                    $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
-                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))");
 
                 }
             }
