@@ -57,7 +57,7 @@ ini_set('display_errors', true);
                     WHERE p.first_name = '$doctor'")->fetchAll();
                    
                     foreach($pquery as $appointment){
-                        if(IF @@ROWCOUNT > 0 ){
+                        if(IF ROW_COUNT > 0 ){
                             echo 'You have results!';   
                         } else {
                             echo 'The table is empty';
