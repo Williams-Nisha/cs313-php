@@ -186,8 +186,9 @@ ini_set('display_errors', true);
                             if($doctor['physician_id'] == $rows['physician_id']){
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td><td>' . $doctor['physician_id'];
                            }
+                            echo '</td></tr>';
                     }
-                        echo '</td></tr>';
+                        
                      }
                          
 //                    }
