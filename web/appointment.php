@@ -57,7 +57,7 @@ ini_set('display_errors', true);
                     WHERE p.first_name = '$doctor'")->fetchAll();
                    
                     foreach($pquery as $appointment){
-                  var_dump($appointment.length);
+                  var_dump(count($appointment));
 //                        if($appointment.length > 0 &&){
 //                            echo 'You may create an appointment';
 //                        } else if(appointment['start_date'])
