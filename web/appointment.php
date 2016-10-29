@@ -43,18 +43,18 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
-                $pquery = $db->query(
-                    'SELECT
-                        a.appointment_date
-                    ,   s.start_time
-                    ,   s.end_time
-                    ,   p.physician_id
-                    ,   p.first_name
-                    FROM appointment a INNER JOIN schedule s
-                    ON  a.physician_id = s.physician_id
-                    INNER JOIN physician p
-                    ON s.physician_id = p.physician_id
-                    WHERE p.first_name = "' . $doctor . ';')
+//                $pquery = $db->query(
+//                    'SELECT
+//                        a.appointment_date
+//                    ,   s.start_time
+//                    ,   s.end_time
+//                    ,   p.physician_id
+//                    ,   p.first_name
+//                    FROM appointment a INNER JOIN schedule s
+//                    ON  a.physician_id = s.physician_id
+//                    INNER JOIN physician p
+//                    ON s.physician_id = p.physician_id
+//                    WHERE p.first_name = "' . $doctor . ';')
                         
 //                        
 //                foreach($pquery as $appointment){
