@@ -42,7 +42,6 @@ ini_set('display_errors', true);
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
-//                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") as $appointment)
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
@@ -98,22 +97,6 @@ ini_set('display_errors', true);
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                    (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
                   }
-                       
-////                foreach($pquery as $appointment){
-////                  foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
-////                    $timestamp = $adate . " " . $atime; 
-//////                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
-////                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
-////                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
-////                      
-////                  echo 'You are able to book appointment';
-////                    } else {
-////                        echo ' The appoinment is out of date range.';
-////                    }
-////                      
-////                }
-                  
-
                 }
             }
 ?>
@@ -159,7 +142,7 @@ ini_set('display_errors', true);
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $patient = $_POST['patient'];
                         if($patient != 'list'){
-                            $query = $db->query("SELECT * FROM patient WHERE first_name='$patient'")->fetchAll();
+                            $query = $db->query("SELECT * FROM patient INNER JOIN appointment WHERE first_name='$patient'")->fetchAll();
                         }
                     }
 
@@ -191,22 +174,15 @@ ini_set('display_errors', true);
                 </thead>
                 <tbody>
                      <?php
-//                    foreach($query as $row){
-//                        if(select exists(select 1 from appointment where patient_id="(SELECT patient_id FROM patient WHERE patient_id='$fname')")){
-//                    echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
-//                    foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['patient_id'] . "'") as $appointment){
-//                        echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
-//                    }
-//                    echo '</td></tr>';
-//                        }
-//            }
-//                    foreach($pquery as $row){
-//                foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
-//                echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
-//                echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
-//                    }
-//                    echo '</td></tr>';
-//                    }
+//                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
+                    foreach($query as $row){         
+                foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
+                echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
+                echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
+                    }
+                    echo '</td></tr>';
+                    }
+                    }
                     ?>
                 </tbody>
             </table>
