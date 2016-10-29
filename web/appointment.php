@@ -122,11 +122,11 @@ ini_set('display_errors', true);
                   <input type="text" name="first_name" value="<?=$fname?>"><br><br>
                 <b>Last Name: </b><span class="error">*<?= $lnameErr;?></span><br>
                   <input type="text" name="last_name" value="<?=$lname?>"><br><br>
-                <b>Appointment Date: </b><span class="error">*<?= $adateErr;?></span><br>
+                <b>Appointment Date: </b> Format: YYYY:MM:DD<span class="error">*<?= $adateErr;?></span><br>
                   <input type="text" name="appointment_date" value="<?=$adate?>"><br><br>
-                <b>Appointment Time: </b><span class="error">*<?= $atimeErr;?></span><br>
+                <b>Appointment Time: </b> Format: HH:MM:SS<span class="error">*<?= $atimeErr;?></span><br>
                   <input type="text" name="appointment_time" value="<?=$atime?>"><br><br>
-                <b>Doctor: </b><span class="error">*<?= $doctorErr;?></span><br>
+                <b>Doctor: </b> First Name Only<span class="error">*<?= $doctorErr;?></span><br>
                   <input type="text" name="doctor" value="<?=$doctor?>"><br><br>
                 <input type="submit">
             </form>
@@ -176,12 +176,9 @@ ini_set('display_errors', true);
                 </thead>
                 <tbody>
                      <?php
+                         
+                    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                     $sched_apts = $db->query("SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id;")->fetchAll();
-                    
-//                    foreach($sched_apts as apts){
-//                       echo '<tr><td>' . $apts['first_name'] . ' ' . $apts['last_name'] . '</td><td>' . $apts['appointment_date'];
-//                        echo '</td></tr>';
-//                    }
                      foreach($sched_apts as $rows){
                         echo '<tr>';
                         echo  '<td>'. $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
@@ -192,6 +189,7 @@ ini_set('display_errors', true);
                     }
                         echo '</td></tr>';
                      }
+                    }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
 //               
                     ?>
