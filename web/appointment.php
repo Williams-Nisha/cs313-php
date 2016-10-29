@@ -189,7 +189,7 @@ ini_set('display_errors', true);
                     AND pa.first_name = '$fname'"
                 )->fetchAll();
                     foreach($query as $row){    
-                         echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
+                         echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td></tr>';
 //                    foreach($disp_appointment as $appointment){
 //                        echo '<td>' . $appointment['start_date'] . "</td><td>" . $appointment['end_date'] . "</td><td>" . $appointment['first_name'] . ' '. $appointment['last_name'];
 //                        echo "</td></tr>";
