@@ -53,9 +53,7 @@ ini_set('display_errors', true);
                     ON  s.physician_id = p.physician_id
                     LEFT JOIN appointment a
                     ON a.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'
-                    AND $timestamp >= s.start_time
-                    AND $timestamp <= s.end_time"
+                    WHERE p.first_name = '$doctor'"
                 )->fetchAll();
 //                  
 //                   $has_appointment = FALSE;
