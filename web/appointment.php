@@ -82,7 +82,7 @@ ini_set('display_errors', true);
                 )->fetchAll();
                   
                     foreach($appointment as $appoint){
-                        if(appoint['appointment_date'] == $date ){
+                        if($appoint['appointment_date'] == $date ){
                           echo 'doctor has an appointment at that time';
                           $has_appointment = TRUE;
                               
