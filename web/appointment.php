@@ -166,37 +166,44 @@ ini_set('display_errors', true);
                 <thead>
                     <tr>
                         <th>Patient Name</th>  
-                        <th>Date</th> 
-                        <th>Start Time</th>
-                        <th>End Time</th>
+                        <th>Appointment Time</th> 
+<!--                        <th>Start Time</th>-->
+<!--                        <th>End Time</th>-->
                         <th>Doctor</th>
                     </tr>
                 </thead>
                 <tbody>
                      <?php
-//                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
-                      $disp_appointment = $db->query(
-                    "SELECT
-                        a.appointment_date
-                    ,   p.physician_id
-                    ,   p.first_name
-                    ,   pa.first_name
-                    ,   pa.last_name
-                    FROM appointment a INNER JOIN physician p
-                    ON  a.physician_id = p.physician_id INNER JOIN patient pa
-		    ON pa.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'
-                    AND pa.first_name = '$fname'"
-                )->fetchAll();
-//                    $apt_query = $db->query("SELECT * FROM patient p INNER JOIN appointment a ON p.patient_id = a.patient_id WHERE first_name='$patient'")->fetchAll();
-                    foreach($disp_appointment as $row){    
-                         echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['start_date']. '</td><td>' . $row['end_date'] ;
+                    $sched_apts = 'SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id';
+                    
+                    foreach($sched_apts as apts){
+                       echo '<tr><td>' . $apts['first_name'] . ' ' . $apts['last_name'] . '</td><td>' . $apts['appointment_date'];
                         echo '</td></tr>';
+                    }
+//                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
+//                      $disp_appointment = $db->query(
+//                    "SELECT
+//                        a.appointment_date
+//                    ,   p.physician_id
+//                    ,   p.first_name
+//                    ,   pa.first_name
+//                    ,   pa.last_name
+//                    FROM appointment a INNER JOIN physician p
+//                    ON  a.physician_id = p.physician_id INNER JOIN patient pa
+//		    ON pa.physician_id = p.physician_id
+//                    WHERE p.first_name = '$doctor'
+//                    AND pa.first_name = '$fname'"
+//                )->fetchAll();
+//                    $apt_query = $db->query("SELECT * FROM patient p INNER JOIN appointment a ON p.patient_id = a.patient_id WHERE first_name='$patient'")->fetchAll();
+//                    $apt_query = $db-query('SELECT * FROM appointment');
+//                    foreach($disp_appointment as $row){    
+//                         echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['start_date']. '</td><td>' . $row['end_date'] ;
+//                        echo '</td></tr>';
 //                    foreach($disp_appointment as $appointment){
 //                        echo '<td>' . $appointment['start_date'] . "</td><td>" . $appointment['end_date'] . "</td><td>" . $appointment['first_name'] . ' '. $appointment['last_name'];
 //                        echo "</td></tr>";
                         
-                    }
+//                    }
 //                foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
 //                echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
 //                echo '<td>' . $appointment['appointment_date'] . "</td><td>" . $appointment['appointment_date'] . "</td><td>" . $appointment['physician_id'] ;
