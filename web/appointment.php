@@ -47,22 +47,22 @@ ini_set('display_errors', true);
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
                   echo $date;
-//                  $has_schedule = FALSE;
-//                $available = $db->query(
-//                    "SELECT
-//                        a.appointment_date
-//                    ,   s.start_time
-//                    ,   s.end_time
-//                    ,   p.physician_id
-//                    ,   p.first_name
-//                    FROM schedule s INNER JOIN physician p
-//                    ON  s.physician_id = p.physician_id
-//                    LEFT JOIN appointment a
-//                    ON a.physician_id = p.physician_id
-//                    WHERE p.first_name = '$doctor'
-//                    AND $date >= s.start_time
-//                    AND $date <= s.end_time"
-//                )->fetchAll();
+                  $has_schedule = FALSE;
+                $available = $db->query(
+                    "SELECT
+                        a.appointment_date
+                    ,   s.start_time
+                    ,   s.end_time
+                    ,   p.physician_id
+                    ,   p.first_name
+                    FROM schedule s INNER JOIN physician p
+                    ON  s.physician_id = p.physician_id
+                    LEFT JOIN appointment a
+                    ON a.physician_id = p.physician_id
+                    WHERE p.first_name = '$doctor'
+                    AND $date >= s.start_time
+                    AND $date <= s.end_time"
+                )->fetchAll();
 //                  
 //                   $has_appointment = FALSE;
 //                  
