@@ -87,7 +87,7 @@ ini_set('display_errors', true);
                           $has_appointment = TRUE;
                               
                       } else {
-                          echo 'doctor is not available';                      }
+                          echo 'doctor is available at that time';                      }
                           
                           
                       } 
