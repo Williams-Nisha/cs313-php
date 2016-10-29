@@ -98,41 +98,7 @@ ini_set('display_errors', true);
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                    (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
                   }
-                  
-//                   $has_appointment = FALSE;
-//                  
-//                    foreach($available as $appointment){
-//                        $has_schedule = TRUE;
-//                        if($appointment['appointment_date'] == $timestamp){
-//                            $has_appointment = TRUE;
-//                            
-////                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
-////                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
-////                            $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")');
-////                            echo 'there are no results';
-////                            var_dump($hour);
-////                            echo $doctor;
-////                            if( $timestamp >= $timestamp1){
-////                                echo "time is bigger";
-////                            }
-////                        } else {
-////                            echo "time is smaller";
-////                            $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
-////                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
-//                            
-////                        } else {
-////                        if($appointment.length > 0 &&){
-////                            echo 'You may create an appointment';
-////                        } else if(appointment['start_date'])
-////                        echo 'there are results';
-//                        }
-//                    }
-//                  if(!$has_appointment && $has_schedule){
-//                      echo 'doctor is available';
-//                      
-//                  }
-//                  
-////                        
+                       
 ////                foreach($pquery as $appointment){
 ////                  foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
 ////                    $timestamp = $adate . " " . $atime; 
@@ -246,9 +212,6 @@ ini_set('display_errors', true);
             </table>
                 </div>
               </div>
-        <?php
-            echo 'Hello from appointment page';
-        ?>
         </main>
     </body>
 </html>
