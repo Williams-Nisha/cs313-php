@@ -55,7 +55,7 @@ ini_set('display_errors', true);
                     INNER JOIN physician p
                     ON s.physician_id = p.physician_id
                     WHERE p.first_name = '$doctor'")->fetchAll();
-                    GET DIAGNOSTICS $pquery = ROW_COUNT;
+//                    GET DIAGNOSTICS $pquery = ROW_COUNT;
                     foreach($pquery as $appointment){
 //                        if($row_count){
                             echo $adate . ' ' . $atime;
