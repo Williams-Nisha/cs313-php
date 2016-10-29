@@ -182,7 +182,7 @@ ini_set('display_errors', true);
 //                    }
                      foreach($sched_apts as $rows){
                         echo '<tr>';
-                        echo '<strong><td>' . '<td></td>' . '</td><td>' . $rows['first_name'] . '' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
+                        echo  '<td>'. $rows['first_name'] . '' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
                         echo '</td></tr>';
                      }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
