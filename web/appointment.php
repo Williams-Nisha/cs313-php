@@ -41,15 +41,20 @@ ini_set('display_errors', true);
     }
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
-                if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){//
-            $timestamp = $adate . " " . $atime; 
-            $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
-            echo $hour; // not sure why it does not like this code
+              if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
+                   $pquery = $db->exec("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;")->fetchAll();
+                    
+                foreach($pquery as $appointment){
+                    $timestamp = $adate . " " . $atime; 
+                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
+                    echo $hour;
+                      
+                }
+                  
                     $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                     (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))");
 
                 }
-                 $pquery = $db->query("SELECT * FROM appointment")->fetchAll();
             }
 ?>
 
