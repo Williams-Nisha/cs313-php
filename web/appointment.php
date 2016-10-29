@@ -177,7 +177,7 @@ ini_set('display_errors', true);
                 <tbody>
                      <?php
                          
-                    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
+//                    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                     $sched_apts = $db->query("SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id;")->fetchAll();
                      foreach($sched_apts as $rows){
                         echo '<tr>';
@@ -190,7 +190,7 @@ ini_set('display_errors', true);
                         echo '</td></tr>';
                      }
                          
-                    }
+//                    }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
 //               
                     ?>
