@@ -62,7 +62,7 @@ ini_set('display_errors', true);
                   
                   foreach($schedule as $sched){
                       
-                      if($date >= $sched['start_time'] && $date <= $sched['end_date']){
+                      if($date >= $sched['start_time'] && $date <= $sched['end_time']){
                           echo 'doctor is available';
                           $has_schedule = TRUE;
                               
