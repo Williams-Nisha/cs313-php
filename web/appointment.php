@@ -58,6 +58,7 @@ ini_set('display_errors', true);
                    
                     foreach($pquery as $appointment){
                         if(ROW_COUNT ){
+                            echo $adate . ' ' . $atime;
                             $timestamp = $adate . " " . $atime;
                             if( $timestamp >= $appointment['start_date']){
                                 echo "time is bigger";
