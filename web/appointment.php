@@ -43,6 +43,7 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
+                  $atime = '11:00:00';
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
@@ -63,7 +64,7 @@ ini_set('display_errors', true);
                     AND $date >= s.start_time
                     AND $date <= s.end_time"
                 )->fetchAll();
-//                  
+                  
 //                   $has_appointment = FALSE;
 //                  
 //                    foreach($available as $appointment){
