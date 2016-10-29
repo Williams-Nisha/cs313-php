@@ -46,13 +46,14 @@ ini_set('display_errors', true);
                     
                 foreach($pquery as $appointment){
                     $timestamp = $adate . " " . $atime; 
-                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
-                    echo $hour;
-                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
-                        echo 'You are able to book appointment';
-                    } else {
-                        echo ' The appoinment is out of date range.';
-                    }
+//                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
+                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
+                    var_dump($subHours);
+//                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
+//                        echo 'You are able to book appointment';
+//                    } else {
+//                        echo ' The appoinment is out of date range.';
+//                    }
                       
                 }
                   
