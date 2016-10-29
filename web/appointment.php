@@ -45,6 +45,7 @@ ini_set('display_errors', true);
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
+                  $date = date('Y-m-d H:i:s', strtotime($timestamp));
                   $has_schedule = FALSE;
                 $available = $db->query(
                     "SELECT
@@ -57,7 +58,9 @@ ini_set('display_errors', true);
                     ON  s.physician_id = p.physician_id
                     LEFT JOIN appointment a
                     ON a.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'"
+                    WHERE p.first_name = '$doctor'
+                    AND $date >= s.start_time
+                    AND $date <= s.end_time"
                 )->fetchAll();
 //                  
 //                   $has_appointment = FALSE;
