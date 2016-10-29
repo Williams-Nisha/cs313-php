@@ -65,6 +65,7 @@ ini_set('display_errors', true);
                             $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")');
                             echo 'there are no results';
                             var_dump($hour);
+                            echo $doctor;
 //                            if( $timestamp >= $timestamp1){
 //                                echo "time is bigger";
 //                            }
