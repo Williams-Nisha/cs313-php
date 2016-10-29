@@ -55,7 +55,7 @@ ini_set('display_errors', true);
                     INNER JOIN physician p
                     ON s.physician_id = p.physician_id
                     WHERE p.first_name = '$doctor'")->fetchAll();
-                    $row_count = $statement->rowCount();
+                    $row_count = $pquery->fetchColumn() > 0;
                     foreach($pquery as $appointment){
                         if($row_count > 0){
                             echo $adate . ' ' . $atime;
