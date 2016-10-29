@@ -62,11 +62,13 @@ ini_set('display_errors', true);
                             $timestamp = $adate . " " . $atime;
                             $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
                             $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
-                            if( $timestamp >= $timestamp1){
-                                echo "time is bigger";
-                            }
-                        } else {
-                            echo "time is smaller";
+                            $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
+                            var_dump($hour);
+//                            if( $timestamp >= $timestamp1){
+//                                echo "time is bigger";
+//                            }
+//                        } else {
+//                            echo "time is smaller";
 //                            $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
 //                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
                             
