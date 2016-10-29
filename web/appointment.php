@@ -55,7 +55,14 @@ ini_set('display_errors', true);
                     INNER JOIN physician p
                     ON s.physician_id = p.physician_id
                     WHERE p.first_name = '$doctor'")->fetchAll();
-                        
+                   
+                    foreach($pquery as $appointment){
+                  var_dump($appointment.length)
+//                        if($appointment.length > 0 &&){
+//                            echo 'You may create an appointment';
+//                        } else if(appointment['start_date'])
+                    }
+                  
 //                        
 //                foreach($pquery as $appointment){
 //                  foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
@@ -63,7 +70,8 @@ ini_set('display_errors', true);
 ////                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
 //                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
 //                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
-//                        echo 'You are able to book appointment';
+//                      
+                  echo 'You are able to book appointment';
 //                    } else {
 //                        echo ' The appoinment is out of date range.';
 //                    }
