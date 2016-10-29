@@ -55,9 +55,9 @@ ini_set('display_errors', true);
                     INNER JOIN physician p
                     ON s.physician_id = p.physician_id
                     WHERE p.first_name = '$doctor'")->fetchAll();
-                    $row_count = $pquery->fetchColumn() > 0;
+                    $row_count = GET DIAGNOSTICS $pquery = ROW_COUNT;
                     foreach($pquery as $appointment){
-                        if($row_count > 0){
+                        if($row_count){
                             echo $adate . ' ' . $atime;
                             $timestamp = $adate . " " . $atime;
 //                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
@@ -73,11 +73,12 @@ ini_set('display_errors', true);
 //                            $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
 //                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
                             
-                        }
+                        } else {
 //                        if($appointment.length > 0 &&){
 //                            echo 'You may create an appointment';
 //                        } else if(appointment['start_date'])
                         echo 'there are results';
+                        }
                     }
                   
 //                        
