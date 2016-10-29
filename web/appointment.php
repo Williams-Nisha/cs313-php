@@ -43,27 +43,36 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
-                $pquery = $db->query(
+                  echo $adate . ' ' . $atime;
+                 $timestamp = $adate . " " . $atime;
+                  $has_schedule = FALSE;
+                $available = $db->query(
                     "SELECT
                         a.appointment_date
                     ,   s.start_time
                     ,   s.end_time
                     ,   p.physician_id
                     ,   p.first_name
-                    FROM appointment a INNER JOIN schedule s
-                    ON  a.physician_id = s.physician_id
-                    INNER JOIN physician p
-                    ON s.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'")->fetchAll();
-//                    GET DIAGNOSTICS $pquery = ROW_COUNT;
-                    foreach($pquery as $appointment){
-//                        if($row_count){
-                            echo $adate . ' ' . $atime;
-                            $timestamp = $adate . " " . $atime;
+                    FROM schedule s INNER JOIN physician p
+                    ON  s.physician_id = p.physician_id
+                    LEFT JOIN appointment a
+                    ON a.physician_id = p.physician_id
+                    WHERE p.first_name = '$doctor'
+                    AND $timestamp >= s.start_time
+                    AND $timestamp <= s.end_time"
+                )->fetchAll();
+                  
+                   $has_appointment = FALSE;
+                  
+                    foreach($available as $appointment){
+                        $has_schedule = TRUE;
+                        if($appointment['appointment_date'] == $timestamp){
+                            $has_appointment = TRUE;
+                            
 //                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
 //                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
-                            $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")');
-                            echo 'there are no results';
+//                            $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")');
+//                            echo 'there are no results';
                             var_dump($hour);
                             echo $doctor;
 //                            if( $timestamp >= $timestamp1){
@@ -81,6 +90,10 @@ ini_set('display_errors', true);
 //                        echo 'there are results';
                         }
                     }
+                  if(!$has_appointment && $has_schedule){
+                      echo 'doctor is available';
+                      
+                  }
                   
 //                        
 //                foreach($pquery as $appointment){
