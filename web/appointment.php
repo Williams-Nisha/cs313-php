@@ -49,10 +49,6 @@ ini_set('display_errors', true);
                 $available = $db->query(
                     "SELECT
                         a.appointment_date
-                    ,   s.start_time
-                    ,   s.end_time
-                    ,   p.physician_id
-                    ,   p.first_name
                     FROM schedule s INNER JOIN physician p
                     ON  s.physician_id = p.physician_id
                     LEFT JOIN appointment a
