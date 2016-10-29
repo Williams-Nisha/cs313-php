@@ -42,7 +42,7 @@ ini_set('display_errors', true);
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
-                   $pquery = $db->exec("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;")->fetch();
+                   $pquery = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;")->fetchAll();
                     
                 foreach($pquery as $appointment){
                     $timestamp = $adate . " " . $atime; 
@@ -65,7 +65,7 @@ ini_set('display_errors', true);
         </title>
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel="stylesheet" href="../stylesheets/styles.css">
-    </head>
+    </head>-
     <body>
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php'; ?>
         <main class="content">
