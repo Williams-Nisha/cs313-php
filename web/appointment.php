@@ -48,6 +48,7 @@ ini_set('display_errors', true);
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
                   echo $date;
                   $has_schedule = FALSE;
+                  $has_appointment = FALSE;
                   $schedule = $db->query(
                     "SELECT
                         s.start_time
@@ -69,21 +70,30 @@ ini_set('display_errors', true);
                           echo 'doctor is not available';                      }
                   }
                   
-//                $available = $db->query(
-//                    "SELECT
-//                        a.appointment_date
-//                    ,   s.start_time
-//                    ,   s.end_time
-//                    ,   p.physician_id
-//                    ,   p.first_name
-//                    FROM schedule s INNER JOIN physician p
-//                    ON  s.physician_id = p.physician_id
-//                    LEFT JOIN appointment a
-//                    ON a.physician_id = p.physician_id
-//                    WHERE p.first_name = '$doctor'
-//                    AND $date >= s.start_time
-//                    AND $date <= s.end_time"
-//                )->fetchAll();
+                try {
+                $appointment = $db->query(
+                    "SELECT
+                        a.appointment_date
+                    ,   p.physician_id
+                    ,   p.first_name
+                    FROM appointment a INNER JOIN physician p
+                    ON  a.physician_id = p.physician_id
+                    WHERE p.first_name = '$doctor'"
+                )->fetchAll();
+                  
+                    foreach($appointment as $appoint){
+                        if(appoint['appointment_date'] == $date ){
+                          echo 'doctor has an appointment at that time';
+                          $has_appointment = TRUE;
+                              
+                      } else {
+                          echo 'doctor is not available';                      }
+                          
+                          
+                      } 
+                } catch (exception $e){
+                    $has_appointment = FALSE;
+                }
                   
 //                   $has_appointment = FALSE;
 //                  
