@@ -186,7 +186,7 @@ ini_set('display_errors', true);
                         echo '<tr>';
                         echo  '<td>'. $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
                         foreach($db->query("SELECT * FROM appointment a INNER JOIN physician p ON a.physician_id = p.physician_id;") as $doctor){
-                            if(a.physician_id == p.physician_id){
+                            if($doctor['physician_id']){
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] ;
                             }
                     }
