@@ -137,8 +137,8 @@ ini_set('display_errors', true);
                 <option value="list">All Patients</option> 
                   <h2>Patient Information</h2>
                    <?php
-                    $query = $db->query('SELECT * FROM patient')->fetchAll();
-                
+//                    $query = $db->query('SELECT * FROM patient')->fetchAll();
+                 $query = db->query("SELECT * FROM patient INNER JOIN appointment WHERE first_name='$patient'")->fetchAll();
                     if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $patient = $_POST['patient'];
                         if($patient != 'list'){
