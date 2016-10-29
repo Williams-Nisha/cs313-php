@@ -60,8 +60,8 @@ ini_set('display_errors', true);
                         if(ROW_COUNT ){
                             echo $adate . ' ' . $atime;
                             $timestamp = $adate . " " . $atime;
-                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
-                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
+//                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
+//                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
                             $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
                             var_dump($hour);
 //                            if( $timestamp >= $timestamp1){
