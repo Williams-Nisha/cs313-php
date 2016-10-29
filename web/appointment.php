@@ -175,21 +175,21 @@ ini_set('display_errors', true);
                 <tbody>
                      <?php
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
-                      $disp_appointment = $db->query(
-                    "SELECT
-                        a.appointment_date
-                    ,   p.physician_id
-                    ,   p.first_name
-                    ,   pa.first_name
-                    ,   pa.last_name
-                    FROM appointment a INNER JOIN physician p
-                    ON  a.physician_id = p.physician_id INNER JOIN patient pa
-		    ON pa.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'
-                    AND pa.first_name = '$fname'"
-                )->fetchAll();
-                    $apt_query = $db->query("SELECT * FROM patient p INNER JOIN appointment a ON p.patient_id = a.patient_id WHERE first_name='$patient'")->fetchAll();
-                    foreach($apt_query as $row){    
+//                      $disp_appointment = $db->query(
+//                    "SELECT
+//                        a.appointment_date
+//                    ,   p.physician_id
+//                    ,   p.first_name
+//                    ,   pa.first_name
+//                    ,   pa.last_name
+//                    FROM appointment a INNER JOIN physician p
+//                    ON  a.physician_id = p.physician_id INNER JOIN patient pa
+//		    ON pa.physician_id = p.physician_id
+//                    WHERE p.first_name = '$doctor'
+//                    AND pa.first_name = '$fname'"
+//                )->fetchAll();
+//                    $apt_query = $db->query("SELECT * FROM patient p INNER JOIN appointment a ON p.patient_id = a.patient_id WHERE first_name='$patient'")->fetchAll();
+                    foreach($query as $row){    
                          echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['start_date']. '</td><td>' . $row['end_date'] ;
                         echo '</td></tr>';
 //                    foreach($disp_appointment as $appointment){
