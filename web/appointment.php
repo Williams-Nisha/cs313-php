@@ -45,22 +45,22 @@ ini_set('display_errors', true);
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
-//                  $has_schedule = FALSE;
-//                $available = $db->query(
-//                    "SELECT
-//                        a.appointment_date
-//                    ,   s.start_time
-//                    ,   s.end_time
-//                    ,   p.physician_id
-//                    ,   p.first_name
-//                    FROM schedule s INNER JOIN physician p
-//                    ON  s.physician_id = p.physician_id
-//                    LEFT JOIN appointment a
-//                    ON a.physician_id = p.physician_id
-//                    WHERE p.first_name = '$doctor'
-//                    AND $timestamp >= s.start_time
-//                    AND $timestamp <= s.end_time"
-//                )->fetchAll();
+                  $has_schedule = FALSE;
+                $available = $db->query(
+                    "SELECT
+                        a.appointment_date
+                    ,   s.start_time
+                    ,   s.end_time
+                    ,   p.physician_id
+                    ,   p.first_name
+                    FROM schedule s INNER JOIN physician p
+                    ON  s.physician_id = p.physician_id
+                    LEFT JOIN appointment a
+                    ON a.physician_id = p.physician_id
+                    WHERE p.first_name = '$doctor'
+                    AND $timestamp >= s.start_time
+                    AND $timestamp <= s.end_time"
+                )->fetchAll();
 //                  
 //                   $has_appointment = FALSE;
 //                  
