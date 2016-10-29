@@ -176,10 +176,10 @@ ini_set('display_errors', true);
                      <?php
                     $sched_apts = $db->query("SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id;")->fetchAll();
                     
-                    foreach($sched_apts as apts){
-                       echo '<tr><td>' . $apts['first_name'] . ' ' . $apts['last_name'] . '</td><td>' . $apts['appointment_date'];
-                        echo '</td></tr>';
-                    }
+//                    foreach($sched_apts as apts){
+//                       echo '<tr><td>' . $apts['first_name'] . ' ' . $apts['last_name'] . '</td><td>' . $apts['appointment_date'];
+//                        echo '</td></tr>';
+//                    }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
 //                      $disp_appointment = $db->query(
 //                    "SELECT
