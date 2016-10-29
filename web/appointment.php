@@ -190,9 +190,9 @@ ini_set('display_errors', true);
                 )->fetchAll();
                     foreach($query as $row){    
                          echo '<tr><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>';
-                    foreach($disp_appointment as $appointment){
-                        echo '<td>' . $appointment['start_date'] . "</td><td>" . $appointment['end_date'] . "</td><td>" . $appointment['first_name'] . ' '. $appointment['last_name'];
-                        echo "</td></tr>";
+//                    foreach($disp_appointment as $appointment){
+//                        echo '<td>' . $appointment['start_date'] . "</td><td>" . $appointment['end_date'] . "</td><td>" . $appointment['first_name'] . ' '. $appointment['last_name'];
+//                        echo "</td></tr>";
                         
                     }
 //                foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
