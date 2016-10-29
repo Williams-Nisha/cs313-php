@@ -57,7 +57,11 @@ ini_set('display_errors', true);
                     WHERE p.first_name = '$doctor'")->fetchAll();
                    
                     foreach($pquery as $appointment){
-                  var_dump(count($appointment));
+                        if(IF @@ROWCOUNT > 0 ){
+                            echo 'You have results!';   
+                        } else {
+                            echo 'The table is empty';
+                        }
 //                        if($appointment.length > 0 &&){
 //                            echo 'You may create an appointment';
 //                        } else if(appointment['start_date'])
@@ -71,7 +75,7 @@ ini_set('display_errors', true);
 //                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
 //                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
 //                      
-                  echo 'You are able to book appointment';
+//                  echo 'You are able to book appointment';
 //                    } else {
 //                        echo ' The appoinment is out of date range.';
 //                    }
