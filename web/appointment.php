@@ -43,27 +43,47 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") as $appointment)
-                  $atime = 11:00:00;
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
                   echo $date;
                   $has_schedule = FALSE;
-                $available = $db->query(
+                  $schedule = $db->query(
                     "SELECT
-                        a.appointment_date
-                    ,   s.start_time
+                        s.start_time
                     ,   s.end_time
                     ,   p.physician_id
                     ,   p.first_name
                     FROM schedule s INNER JOIN physician p
                     ON  s.physician_id = p.physician_id
-                    LEFT JOIN appointment a
-                    ON a.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'
-                    AND $date >= s.start_time
-                    AND $date <= s.end_time"
+                    WHERE p.first_name = '$doctor'"
                 )->fetchAll();
+                  
+                  foreach($schedule as $sched){
+                      
+                      if($date >= $sched['start_time'] && $date <= $sched['end_date']){
+                          echo 'doctor is available';
+                          $has_schedule = TRUE;
+                              
+                      } else {
+                          echo 'doctor is not available';                      }
+                  }
+                  
+//                $available = $db->query(
+//                    "SELECT
+//                        a.appointment_date
+//                    ,   s.start_time
+//                    ,   s.end_time
+//                    ,   p.physician_id
+//                    ,   p.first_name
+//                    FROM schedule s INNER JOIN physician p
+//                    ON  s.physician_id = p.physician_id
+//                    LEFT JOIN appointment a
+//                    ON a.physician_id = p.physician_id
+//                    WHERE p.first_name = '$doctor'
+//                    AND $date >= s.start_time
+//                    AND $date <= s.end_time"
+//                )->fetchAll();
                   
 //                   $has_appointment = FALSE;
 //                  
