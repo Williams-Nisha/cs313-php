@@ -48,6 +48,11 @@ ini_set('display_errors', true);
                     $timestamp = $adate . " " . $atime; 
                     $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
                     echo $hour;
+                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
+                        echo 'You are able to book appointment';
+                    } else {
+                        echo ' The appoinment is out of date range.';
+                    }
                       
                 }
                   
