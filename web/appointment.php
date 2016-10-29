@@ -44,7 +44,7 @@ ini_set('display_errors', true);
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
                 $pquery = $db->query(
-                    'SELECT
+                    "SELECT
                         a.appointment_date
                     ,   s.start_time
                     ,   s.end_time
@@ -54,7 +54,7 @@ ini_set('display_errors', true);
                     ON  a.physician_id = s.physician_id
                     INNER JOIN physician p
                     ON s.physician_id = p.physician_id
-                    WHERE p.first_name = '"$doctor'")->fetchAll();
+                    WHERE p.first_name = '$doctor'")->fetchAll();
                         
 //                        
 //                foreach($pquery as $appointment){
