@@ -42,20 +42,21 @@ ini_set('display_errors', true);
           
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
-                   $pquery = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;")->fetchAll();
-                    
-                foreach($pquery as $appointment){
-                    $timestamp = $adate . " " . $atime; 
+                   $pquery = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id WHERE physician_id =" . $doctor . ";")->fetchAll();
+                  var_dump($pquery);
+//                    
+//                foreach($pquery as $appointment){
+//                    $timestamp = $adate . " " . $atime; 
 //                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
-                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
-                    var_dump($subHours);
+//                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
+//                    var_dump($subHours);
 //                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
 //                        echo 'You are able to book appointment';
 //                    } else {
 //                        echo ' The appoinment is out of date range.';
 //                    }
                       
-                }
+//                }
                   
                     $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                     (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))");
