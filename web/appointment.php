@@ -45,70 +45,70 @@ ini_set('display_errors', true);
 //                   $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physician_id;") as $appointment)
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
-                  $has_schedule = FALSE;
-                $available = $db->query(
-                    "SELECT
-                        a.appointment_date
-                    ,   s.start_time
-                    ,   s.end_time
-                    ,   p.physician_id
-                    ,   p.first_name
-                    FROM schedule s INNER JOIN physician p
-                    ON  s.physician_id = p.physician_id
-                    LEFT JOIN appointment a
-                    ON a.physician_id = p.physician_id
-                    WHERE p.first_name = '$doctor'
-                    AND $timestamp >= s.start_time
-                    AND $timestamp <= s.end_time"
-                )->fetchAll();
-                  
-                   $has_appointment = FALSE;
-                  
-                    foreach($available as $appointment){
-                        $has_schedule = TRUE;
-                        if($appointment['appointment_date'] == $timestamp){
-                            $has_appointment = TRUE;
-                            
-//                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
-//                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
-//                            $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")');
-//                            echo 'there are no results';
-                            var_dump($hour);
-                            echo $doctor;
-//                            if( $timestamp >= $timestamp1){
-//                                echo "time is bigger";
-//                            }
-//                        } else {
-//                            echo "time is smaller";
-//                            $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
-//                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
-                            
-//                        } else {
-//                        if($appointment.length > 0 &&){
-//                            echo 'You may create an appointment';
-//                        } else if(appointment['start_date'])
-//                        echo 'there are results';
-                        }
-                    }
-                  if(!$has_appointment && $has_schedule){
-                      echo 'doctor is available';
-                      
-                  }
-                  
-//                        
-//                foreach($pquery as $appointment){
-//                  foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
-//                    $timestamp = $adate . " " . $atime; 
-////                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
-//                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
-//                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
-//                      
-//                  echo 'You are able to book appointment';
-//                    } else {
-//                        echo ' The appoinment is out of date range.';
+//                  $has_schedule = FALSE;
+//                $available = $db->query(
+//                    "SELECT
+//                        a.appointment_date
+//                    ,   s.start_time
+//                    ,   s.end_time
+//                    ,   p.physician_id
+//                    ,   p.first_name
+//                    FROM schedule s INNER JOIN physician p
+//                    ON  s.physician_id = p.physician_id
+//                    LEFT JOIN appointment a
+//                    ON a.physician_id = p.physician_id
+//                    WHERE p.first_name = '$doctor'
+//                    AND $timestamp >= s.start_time
+//                    AND $timestamp <= s.end_time"
+//                )->fetchAll();
+//                  
+//                   $has_appointment = FALSE;
+//                  
+//                    foreach($available as $appointment){
+//                        $has_schedule = TRUE;
+//                        if($appointment['appointment_date'] == $timestamp){
+//                            $has_appointment = TRUE;
+//                            
+////                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
+////                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
+////                            $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")');
+////                            echo 'there are no results';
+////                            var_dump($hour);
+////                            echo $doctor;
+////                            if( $timestamp >= $timestamp1){
+////                                echo "time is bigger";
+////                            }
+////                        } else {
+////                            echo "time is smaller";
+////                            $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
+////                    (DEFAULT, '$adate', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
+//                            
+////                        } else {
+////                        if($appointment.length > 0 &&){
+////                            echo 'You may create an appointment';
+////                        } else if(appointment['start_date'])
+////                        echo 'there are results';
+//                        }
 //                    }
+//                  if(!$has_appointment && $has_schedule){
+//                      echo 'doctor is available';
 //                      
-//                }
+//                  }
+//                  
+////                        
+////                foreach($pquery as $appointment){
+////                  foreach($db->query("SELECT * FROM appointment a JOIN patient p ON a.patient_id = p.patient_id WHERE a.patient_id='" . $row['$fname'] . "'") as $appointment){
+////                    $timestamp = $adate . " " . $atime; 
+//////                    $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
+////                    $subHours = 'extract(epoch from $timestamp' . '-' . $appointment['start_date'].')/3600';
+////                    if($pquery['$hour'] >= 'SELECT extract(hour from timestamp "'. $pquery['start_time'].'")' && $pquery['$hour']<= 'SELECT extract(hour from timestamp "'. $pquery['end_time'].'")'){
+////                      
+////                  echo 'You are able to book appointment';
+////                    } else {
+////                        echo ' The appoinment is out of date range.';
+////                    }
+////                      
+////                }
                   
 
                 }
