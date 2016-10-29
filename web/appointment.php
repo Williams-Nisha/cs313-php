@@ -57,7 +57,7 @@ ini_set('display_errors', true);
                     WHERE p.first_name = '$doctor'")->fetchAll();
                    
                     foreach($pquery as $appointment){
-                        if(ROW_COUNT ){
+                        if(pg_num_rows > 0){
                             echo $adate . ' ' . $atime;
                             $timestamp = $adate . " " . $atime;
 //                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
