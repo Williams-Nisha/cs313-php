@@ -94,6 +94,10 @@ ini_set('display_errors', true);
                 } catch (exception $e){
                     $has_appointment = FALSE;
                 }
+                  if($has_schedule && !$has_appointment){
+                      $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
+                   (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
+                  }
                   
 //                   $has_appointment = FALSE;
 //                  
