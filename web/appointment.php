@@ -55,14 +55,15 @@ ini_set('display_errors', true);
                     INNER JOIN physician p
                     ON s.physician_id = p.physician_id
                     WHERE p.first_name = '$doctor'")->fetchAll();
-                   
+                    $row_count = $statement->rowCount();
                     foreach($pquery as $appointment){
-                        if(pg_num_rows > 0){
+                        if($row_count > 0){
                             echo $adate . ' ' . $atime;
                             $timestamp = $adate . " " . $atime;
 //                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
 //                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
                             $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")')->fetch();
+                            echo 'there are no results';
                             var_dump($hour);
 //                            if( $timestamp >= $timestamp1){
 //                                echo "time is bigger";
@@ -76,6 +77,7 @@ ini_set('display_errors', true);
 //                        if($appointment.length > 0 &&){
 //                            echo 'You may create an appointment';
 //                        } else if(appointment['start_date'])
+                        echo 'there are results';
                     }
                   
 //                        
