@@ -60,7 +60,9 @@ ini_set('display_errors', true);
                         if(ROW_COUNT ){
                             echo $adate . ' ' . $atime;
                             $timestamp = $adate . " " . $atime;
-                            if( $timestamp >= $appointment['start_date']){
+                            $timestamp = 'date_part('hour', timestamp "' . $timestamp . '")';
+                            $timestamp1 = 'date_part('hour', timestamp"' . $timestamp . '")';
+                            if( $timestamp >= $timestamp1){
                                 echo "time is bigger";
                             }
                         } else {
