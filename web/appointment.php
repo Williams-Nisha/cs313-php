@@ -62,7 +62,7 @@ ini_set('display_errors', true);
                             $timestamp = $adate . " " . $atime;
 //                            $timestamp =  'SELECT date_part('hour', timestamp "' . $timestamp . '")';
 //                            $timestamp1 = 'SELECT date_part('hour', timestamp"' . $timestamp . '")';
-                            $hour = 'SELECT extract(hour from timestamp "' . $timestamp . '")';
+                            $hour = $db->query('SELECT extract(hour from timestamp "' . $timestamp . '")')->fetchAll();
                             var_dump($hour);
 //                            if( $timestamp >= $timestamp1){
 //                                echo "time is bigger";
