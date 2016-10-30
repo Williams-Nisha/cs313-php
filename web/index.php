@@ -25,10 +25,11 @@ switch($action){
         else{
         	$count = login($row);
     	}
-        include ("signIn.php");
+        include ("signn.php");
         break;
     
     case 'account':
+        echo 'inside account'
         if($_SESSION['loggedin']){
             $row = get_user();
             echo '<h1>Welcome <?= $row["username"]; ?></h1>';
@@ -39,6 +40,7 @@ switch($action){
         }
     
     case 'signUp':
+        echo 'inside sign up';
     	$errorMatch = "";
         include("signup.php");
         break;
