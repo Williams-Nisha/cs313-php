@@ -2,7 +2,7 @@
     session_start();
     require 'db_connection.php';
     require 'functions.php';
-
+echo 'inside index.php';
 if (isset($_POST['action'])){
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 } 

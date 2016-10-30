@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
         <?php 
+            echo 'Made it to the top';
             if(isset($_POST['Submit'])){
                 if($count == 1){
                     $_SESSION['loggedin'] = true;
