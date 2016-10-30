@@ -1,6 +1,5 @@
 <?php
 require('db_connection.php');
-require('index.php');
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
@@ -13,7 +12,7 @@ ini_set('display_errors', true);
                 $('.login').hide();
             </script>";
                     
-                    header("Location: index.php/?action=account");
+                    header("Location: /?action=account");
                 }
                 else{
                     echo "<span class='error'>Wrong Username or Password</span>";
