@@ -150,7 +150,7 @@ ini_set('display_errors', true);
                     $apt_physician = $db->query("SELECT a.physician_id
                                                 FROM appointment a INNER JOIN physician p 
                                                 ON a.physician_id = p.physician_id 
-                                                WHERE a.physician_id =p.physician_id'")->fetchAll();
+                                                WHERE a.physician_id =p.physician_id")->fetchAll();
                          
                     $sched_apts = $db->query("SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id;")->fetchAll();
                      foreach($sched_apts as $rows){
