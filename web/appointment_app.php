@@ -1,5 +1,6 @@
 <?php
 require('db_connection.php');
+require('index.php');
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
