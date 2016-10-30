@@ -32,10 +32,7 @@ ini_set('display_errors', true);
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
               <h2 class="center">Mountainland Family Medicine</h2>
               <h4 class="center">Appointment Setting Application</h4>
-              <div class="preview">
-                  <img class="expand" src="images/medoffice.jpg" alt="Mountainland Family Medicine">    
-            </div>
-            <form name="login" id="login-form" method="post" action="#">
+                          <form name="login" id="login-form" method="post" action="#">
             <table id="login">
                 <tr>
                     <td>Username &nbsp;</td>
@@ -47,18 +44,21 @@ ini_set('display_errors', true);
                     <td><input name="mypassword" type="password" id="mypassword"/></td>  
                     <td></td>
                 </tr>
-                <tr><td colspan="3">&nbsp;</td></tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
                     <td><input type="submit" name="Submit" value="Login"/></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr><td colspan="3">&nbsp;</td></tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
-                    <td colspan="3">Don't have an account? <a href="/signup.php">Sign Up</a></td>
+                    <td colspan="2">Don't have an account? <a href="/signup.php">Sign Up</a></td>
                 </tr>
             </table>
         </form>
+              <div class="preview">
+                  <img class="expand" src="images/medoffice.jpg" alt="Mountainland Family Medicine">    
+            </div>
             </div>
         </main>
     </body>
