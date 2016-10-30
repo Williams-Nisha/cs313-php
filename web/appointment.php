@@ -162,11 +162,11 @@ ini_set('display_errors', true);
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
                             break;
                            }
-                            echo '</td></tr>';
+                        
                    } //else {
 //                            '</td><td>';
 //                        }
-                        
+                        echo '</td></tr>';
                      }
                          
 //                    }
