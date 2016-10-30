@@ -1,7 +1,7 @@
 <?php
 require('db_connection.php');
-//error_reporting(E_ALL);
-//ini_set('display_errors', true);
+error_reporting(E_ALL);
+ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
@@ -70,7 +70,7 @@ require('db_connection.php');
 //                          echo 'doctor is not available';   
                           $schedErr = 'The doctor is not available during that time';
                       }
-                      echo $schedErr;
+                    
                   }
                   
                 try {
@@ -94,7 +94,7 @@ require('db_connection.php');
 //                          echo 'doctor is available at that time';   
                              $appErr = '';
                         }
-                            echo $appErr;  
+                         
                       } 
                 } catch (exception $e){
                     $has_appointment = FALSE;
