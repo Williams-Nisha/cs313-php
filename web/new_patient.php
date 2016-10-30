@@ -6,7 +6,7 @@ ini_set('display_errors', true);
 <?php
    $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
    $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = "";
-  
+       var_dump($fname, $lname, $staddress, $birthdate, $doctor, $insurance, $notes);
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'patient_form') {
             if(empty($_POST["first_name"])){
