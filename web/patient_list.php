@@ -72,10 +72,7 @@ require('db_connection.php');
                         break;
                     }
                     echo '</td></tr>';
-                            
-                            
-                            $rows['insurance_id'] . '</td><td>' . $rows['physician_id'];
-                        echo '</td></tr>';
+                    
                      }
                     ?>
                     </tbody>
