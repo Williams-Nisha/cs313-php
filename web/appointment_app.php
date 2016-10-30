@@ -51,13 +51,11 @@ ini_set('display_errors', true);
                     <td><input name="mypassword" type="password" id="mypassword"/></td>  
                     <td></td>
                 </tr>
-                <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
                     <td><input type="submit" name="Submit" value="Login"/></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
                     <td colspan="2">Don't have an account? <a href="/signup.php">Sign Up</a></td>
                 </tr>

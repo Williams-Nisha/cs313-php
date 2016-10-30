@@ -85,6 +85,9 @@ td,th {
     padding: 0 25px;
 
 }
+.container {
+    widows: 90%;
+}
 .error {
     color:red;
 }
@@ -168,6 +171,9 @@ td,th {
 }
 .thumbnail {
     height: 580px;
+}
+.title {
+    margin-top: 50px;
 }
 .wrapper {
     height: 600px;
