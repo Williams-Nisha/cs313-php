@@ -46,7 +46,7 @@ td,th {
     margin: 50px auto;
     min-height: 500px;
     border: 1px #333 solid;
-    width: 60%;
+    min-width: 70%;
 }
 .app_links {
     list-style-type: none;
