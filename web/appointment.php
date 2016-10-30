@@ -1,7 +1,7 @@
 <?php
 require('db_connection.php');
-//error_reporting(E_ALL);
-//ini_set('display_errors', true);
+error_reporting(E_ALL);
+ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
@@ -138,8 +138,8 @@ require('db_connection.php');
             </form>
                  
                 <h2>Current Appointments</h2>
-            <span><?php $schedErr; ?></span>
-             <span><?php $appErr; ?></span>
+            <span class="error"><?php $schedErr; ?></span>
+             <span class="error"><?php $appErr; ?></span>
             <table>
                 <thead>
                     <tr>
