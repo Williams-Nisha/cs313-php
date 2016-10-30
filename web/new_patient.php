@@ -124,8 +124,7 @@ ini_set('display_errors', true);
                 <div class="information">
                     <table>
                         <thead>
-                           <tr>
-                            <th></th> 
+                           <tr> 
                             <th>First Name</th> 
                             <th>Last Name</th>
                             <th>Street Address</th> 
@@ -142,9 +141,19 @@ ini_set('display_errors', true);
                         <tbody>
                     <?php
                     foreach($pquery as $rows){
-                        echo '<tr>';
-                        echo '<strong><td>' . '<td></td>' . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] .'</td><td>'. $rows['zip_code'] . '</td><td>' . $rows['phone_number'] . '</td><td>' . $rows['birthdate'] . '</td><td>' . $rows['notes'] . '</td><td>' . $rows['insurance_id'] . '</td><td>' . $rows['physician_id'];
-                        echo '</td></tr>';
+                         echo '<tr>';
+                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['birthdate'] . '</td><td>' . $rows['notes'];
+                            foreach($db->query("SELECT * FROM insurance i INNER JOIN patient p ON i.insurance_id = p.insurance_id WHERE p.first_name='" . $rows['first_name'] . "'") as $insurance){
+                        echo '</td><td>' . $insurance['name'] . "</td>";
+                        break;
+                    }
+                         foreach($db->query("SELECT * FROM patient pa INNER JOIN physician p ON pa.physician_id = p.physician_id WHERE p.physician_id='" . $rows['physician_id'] . "'") as $physician){
+                             
+                        echo '</td><td>' . $physician['first_name'] . ' ' . $physician['last_name'] . "</td></tr>";
+                        break;
+                    }
+                    echo '</td></tr>';
+                    
                      }
                         $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
                         $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
