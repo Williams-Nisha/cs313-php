@@ -8,7 +8,10 @@ ini_set('display_errors', true);
                 if($count == 1){
                     $_SESSION['loggedin'] = true;
                     $_SESSION["id"] = $row['id'];
-
+                    echo "<script type=\"text/javascript\">
+                $('.login').hide();
+            </script>";
+                    
                     header("Location: /?action=account");
                 }
                 else{
@@ -22,6 +25,10 @@ ini_set('display_errors', true);
             Appointment Setter App
         </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../stylesheets/styles.css">
     </head>
     <body>
@@ -30,9 +37,9 @@ ini_set('display_errors', true);
         <main class="content">
           <div class="app">
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
-              <h2 class="center">Mountainland Family Medicine</h2>
-              <h4 class="center">Appointment Setting Application</h4>
-                          <form name="login" id="login-form" method="post" action="#">
+        <div class="container">
+          <div class="row">
+            <form name="login" id="login-form" method="post" action="#" class="login col-sm-5">
             <table id="login">
                 <tr>
                     <td>Username &nbsp;</td>
@@ -55,7 +62,13 @@ ini_set('display_errors', true);
                     <td colspan="2">Don't have an account? <a href="/signup.php">Sign Up</a></td>
                 </tr>
             </table>
-        </form>
+              </form>
+               <div class="col-sm-7">
+                <h2 class="center">Mountainland Family Medicine</h2>
+                <h4 class="center">Appointment Setting Application</h4>
+               </div>
+            </div>
+              </div>
               <div class="preview">
                   <img class="expand" src="images/medoffice.jpg" alt="Mountainland Family Medicine">    
             </div>
