@@ -18,6 +18,7 @@ switch($action){
 /****** Account info *****/
     case 'signIn':
         $row = get_login_user();
+        echo 'Inside sign in';
         if($row == ""){
         	$count = 0;
         }
