@@ -105,8 +105,6 @@ ini_set('display_errors', true);
                   }
                 }
             }
-                $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
-                $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = $appErr = $schedErr = "";
 ?>
 
 <html>
@@ -172,8 +170,9 @@ ini_set('display_errors', true);
                      }
                          
 //                    }
-//                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
-//               
+//                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") //
+                           $fname = $lname = $adate = $atime = $doctor = "";
+                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = "";
                     ?>
                 </tbody>
             </table>
