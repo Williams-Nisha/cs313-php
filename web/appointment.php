@@ -153,10 +153,10 @@ ini_set('display_errors', true);
                         echo  '<td>'. $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
                         foreach($db->query("SELECT * FROM appointment a INNER JOIN physician p ON a.physician_id = p.physician_id WHERE p.physician_id = '" . $rows['physician_id'] . "'") as $doctor){
 //                            if($doctor['physician_id'] == $rows['physician_id']){
-                        echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'];
+                        echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
                             break;
                            }
-                            echo '</td></tr>';
+//                            echo '</td></tr>';
 //                   } //else {
 //                            '</td><td>';
 //                        }
