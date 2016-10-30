@@ -60,6 +60,7 @@ require('db_connection.php');
                         echo '<tr>';
                         echo '<td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['phone_number'];
                             foreach($db->query("SELECT * FROM specialty s INNER JOIN physician p ON s.physician_id = p.physician_id WHERE s.physician_id='" . $row['physician_id'] . "'") as $specialty){
+                                echo $specialty['name'];
                         echo '</td><td>' . $specialty['name'] . "</td></tr>";
                         break;
                     }
