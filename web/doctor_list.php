@@ -49,8 +49,7 @@ require('db_connection.php');
                 <thead>
                     <tr>
                         <th></th> 
-                        <th>First Name</th> 
-                        <th>Last Name</th> 
+                        <th>Doctor</th> 
                         <th>Phone #</th> 
                         <th>Specialty</th>
                     </tr>
@@ -59,13 +58,14 @@ require('db_connection.php');
                 <?php
                     foreach($query as $row){
                         echo '<tr>';
-                        echo '<strong><td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . '</td><td>' . $row['last_name'] . '</td><td>' . $row['phone_number'];
-                            foreach($db->query("SELECT * FROM specialty s JOIN physician p ON s.physician_id = p.physician_id WHERE s.physician_id='" . $row['physician_id'] . "'") as $specialty){
+                        echo '<td>' . $row['physician_id'] . '</td><td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td><td>' . $row['phone_number'];
+                            foreach($db->query("SELECT * FROM specialty s INNER JOIN physician p ON s.physician_id = p.physician_id WHERE s.physician_id='" . $row['physician_id'] . "'") as $specialty){
                         echo '</td><td>' . $specialty['name'] . "</td></tr>";
                         break;
                     }
                     echo '</td></tr>';
                      }
+                    
                     ?>
                 </tbody>
             </table>
