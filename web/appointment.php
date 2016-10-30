@@ -138,8 +138,8 @@ require('db_connection.php');
             </form>
                  
                 <h2>Current Appointments</h2>
-                    <span class="error"><? $appErr ?></span>
-                    <span class="error"><? $schedErr ?></span>
+                    <span class="error"><?=$appErr;?></span>
+                    <span class="error"><?=$schedErr; ?></span>
             <table>
                 <thead>
                     <tr>
