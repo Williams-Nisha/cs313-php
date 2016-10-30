@@ -138,20 +138,15 @@ ini_set('display_errors', true);
                     <tr>
                         <th>Patient Name</th>  
                         <th>Appointment Time</th> 
-<!--                        <th>Start Time</th>-->
-<!--                        <th>End Time</th>-->
                         <th>Doctor</th>
                     </tr>
                 </thead>
                 <tbody>
                      <?php
-                         
-//                    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                     $sched_apts = $db->query("SELECT * FROM appointment a INNER JOIN patient p ON a.patient_id = p.patient_id;")->fetchAll();
                      foreach($sched_apts as $rows){
                         echo '<tr>';
                         echo  '<td>'. $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
-                         echo $rows['physician_id'];
                         foreach($db->query("SELECT a.physician_id
                                                 , p.first_name
                                                 , p.last_name
@@ -163,9 +158,7 @@ ini_set('display_errors', true);
                             break;
                            }
                         
-                   } //else {
-//                            '</td><td>';
-//                        }
+                   }
                         echo '</td></tr>';
                      }
                          
