@@ -68,7 +68,9 @@ require('db_connection.php');
                               
                       } else {
 //                          echo 'doctor is not available';   
-                          $schedErr = 'The doctor is not available during that time';}
+                          $schedErr = 'The doctor is not available during that time';
+                      }
+                      echo $schedErr;
                   }
                   
                 try {
@@ -90,9 +92,9 @@ require('db_connection.php');
                               
                       } else {
 //                          echo 'doctor is available at that time';   
+                             $appErr = '';
                         }
-                          $appErr = '';
-                          
+                            echo $appErr;  
                       } 
                 } catch (exception $e){
                     $has_appointment = FALSE;
