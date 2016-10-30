@@ -158,12 +158,7 @@ ini_set('display_errors', true);
                                                 FROM appointment a INNER JOIN physician p 
                                                 ON a.physician_id = p.physician_id 
                                                 WHERE p.physician_id = a.physician_id") as $doctor){
-                            if($db->query("SELECT a.physician_id
-                                                , p.first_name
-                                                , p.last_name
-                                                FROM appointment a INNER JOIN physician p 
-                                                ON a.physician_id = p.physician_id 
-                                                WHERE p.physician_id = a.physician_id"){
+                            if($doctor['physician_id'] == $rows['physician_id']){
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
                             break;
                            }
