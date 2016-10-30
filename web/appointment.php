@@ -162,18 +162,21 @@ ini_set('display_errors', true);
                         foreach($db->query("SELECT a.physician_id
                                                 FROM appointment a INNER JOIN physician p 
                                                 ON a.physician_id = p.physician_id 
-                                                WHERE a.physician_id ='" . $doctor['physician_id'] . "'"){
+                                                WHERE a.physician_id ='" . $doctor['physician_id'] . "'") as $apt_physician){
+                            if($apt_physician['physician_id'] == $doctor['physician_id'] ){
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
                             break;
-                           }
+                            }
+                        }
                             echo '</td></tr>';
 //                   } //else {
 //                            '</td><td>';
 //                        }
                         
-                     }
+                     
                          
-//                    }
+                    }
+                }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") 
 //               
                     ?>
