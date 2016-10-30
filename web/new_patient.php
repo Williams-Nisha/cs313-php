@@ -1,7 +1,7 @@
 <?php
 require('db_connection.php');
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+//error_reporting(E_ALL);
+//ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
@@ -69,8 +69,6 @@ ini_set('display_errors', true);
         }
     }
 
-       var_dump($fname, $lname, $staddress, $city, $state, $zipcode, $birthdate, $doctor, $insurance, $notes);
-       var_dump($fnameErr, $lnameErr, $staddressErr, $cityErr, $stateErr, $zipcodeErr, $phoneErr, $birthdateErr);
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
                 $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zip_code, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
                 (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
