@@ -1,11 +1,11 @@
 <?php
 require('db_connection.php');
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+//error_reporting(E_ALL);
+//ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
-   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = "";
+   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
 
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'appointment_form') {
@@ -64,11 +64,9 @@ ini_set('display_errors', true);
                       if($date >= $sched['start_time'] && $date <= $sched['end_time']){
 //                          echo 'doctor is available';
                           $has_schedule = TRUE;
-                          $schedErr = "";
                               
                       } else {
-//                          echo 'doctor is not available';
-                      $schedErr = 'The doctor is not available during that time';
+                          echo 'doctor is not available';                      }
                   }
                   
                 try {
@@ -84,13 +82,11 @@ ini_set('display_errors', true);
                   
                     foreach($appointment as $appoint){
                         if($appoint['appointment_date'] == $date ){
-//                          echo 'doctor has an appointment at that time';
-                            $appErr = 'The doctor already has an appointment at that time.';
+                          echo 'doctor has an appointment at that time';
                           $has_appointment = TRUE;
                               
                       } else {
-//                          echo 'doctor is available at that time';
-                            $appErr = "";
+                          echo 'doctor is available at that time';                      }
                           
                           
                       } 
@@ -138,8 +134,7 @@ ini_set('display_errors', true);
             </form>
                  
                 <h2>Current Appointments</h2>
-            <span class="error"><?php $schedErr; ?></span>
-             <span class="error"><?php $appErr; ?></span>
+            
             <table>
                 <thead>
                     <tr>
