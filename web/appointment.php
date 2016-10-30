@@ -19,6 +19,9 @@ ini_set('display_errors', true);
                 $lnameErr = "Last name is required";
 
             }
+            else{
+                $lname = $_POST["appointment_date"];
+            }
              if(empty($_POST["appointment_date"])){
                 $adateErr = "Appointment Date is required";
             }
@@ -89,6 +92,7 @@ ini_set('display_errors', true);
 //                          echo 'doctor has an appointment at that time';
                           $has_appointment = TRUE;
                             $appErr = 'The doctor has an appointment during that time';
+                            echo ' The doctor has an appointment during this time';
                               
                       } else {
 //                          echo 'doctor is available at that time';   
