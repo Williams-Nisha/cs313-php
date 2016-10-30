@@ -61,7 +61,7 @@ ini_set('display_errors', true);
                 </tr>
             </table>
               </form>
-               <div class="col-sm-7">
+               <div class="col-sm-6 title">
                 <h2 class="center">Mountainland Family Medicine</h2>
                 <h4 class="center">Appointment Setting Application</h4>
                </div>
