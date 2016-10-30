@@ -150,7 +150,7 @@ ini_set('display_errors', true);
                              
                         echo '</td><td>' . $physician['first_name'] . ' ' . $physician['last_name'] . "</td></tr>";
                         break;
-                    
+                    }
                     echo '</td></tr>';
                     
                      }
