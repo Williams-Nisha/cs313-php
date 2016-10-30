@@ -142,8 +142,8 @@ ini_set('display_errors', true);
             </form>
                  
                 <h2>Current Appointments</h2>
-                    <span class="error"><?=$appErr;?></span>
-                    <span class="error"><?=$schedErr; ?></span>
+                    <p><span class="error"><?=$appErr;?></span></p>
+                    <p><span class="error"><?=$schedErr; ?></span></p>
             <table>
                 <thead>
                     <tr>
