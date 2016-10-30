@@ -152,7 +152,12 @@ ini_set('display_errors', true);
                         echo '<tr>';
                         echo  '<td>'. $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['appointment_date']; 
                          echo $rows['physician_id'];
-                        foreach($db->query("SELECT a.physician_id, p.first_name, p.last_name,  FROM appointment a INNER JOIN physician p ON a.physician_id = p.physician_id WHERE p.physician_id = a.physician_id") as $doctor){
+                        foreach($db->query("SELECT a.physician_id
+                                                , p.first_name
+                                                , p.last_name
+                                                FROM appointment a INNER JOIN physician p 
+                                                ON a.physician_id = p.physician_id 
+                                                WHERE p.physician_id = a.physician_id") as $doctor){
 //                            if($doctor['physician_id'] == $rows['physician_id']){
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
                             break;
