@@ -1,7 +1,7 @@
 <?php
 require('db_connection.php');
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+//error_reporting(E_ALL);
+//ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
@@ -156,7 +156,6 @@ ini_set('display_errors', true);
                      }
                         $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
                         $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
-                
                     ?>
 
                     </tbody>
