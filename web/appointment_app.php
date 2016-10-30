@@ -13,7 +13,7 @@ ini_set('display_errors', true);
                 $('.login').hide();
             </script>";
                     
-                    header("Location: /?action=account");
+                    header("Location: index.php/?action=account");
                 }
                 else{
                     echo "<span class='error'>Wrong Username or Password</span>";
