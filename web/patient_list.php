@@ -83,9 +83,6 @@ require('db_connection.php');
                     </table>
                     </div>
                 </div>
-        <?php
-            echo 'Hello from patient list';
-        ?>
         </main>
     </body>
 </html>
