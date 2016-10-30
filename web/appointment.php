@@ -161,7 +161,7 @@ ini_set('display_errors', true);
                             if($db->query("SELECT a.physician_id
                                                 FROM appointment a INNER JOIN physician p 
                                                 ON a.physician_id = p.physician_id 
-                                                WHERE a.physician_id = $doctor['physician_id']"){
+                                                WHERE a.physician_id ='" . $doctor['physician_id'] . "'"){
                         echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
                             break;
                            }
