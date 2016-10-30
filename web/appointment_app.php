@@ -1,48 +1,24 @@
 <?php
 require('db_connection.php');
+require('index.php');
 error_reporting(E_ALL);
 ini_set('display_errors', true);
-session_start();
-require 'functions.php';
 ?>
         <?php 
-            echo 'Made it to the top';
             if(isset($_POST['Submit'])){
-                //check if signe in already
                 if($count == 1){
                     $_SESSION['loggedin'] = true;
                     $_SESSION["id"] = $row['id'];
                     echo "<script type=\"text/javascript\">
-                            $('.login').hide();
-                          </script>";
-                    //account.php page//
-                    if($_SESSION['loggedin']){
-                        $row = get_user();
-                        echo '<h1>Welcome <?= $row["username"]; ?></h1>';
-                        break;
-
-                    } else{ //CASE SIGN IN//    
-                            $row = get_login_user();
-                            if($row == ""){
-                                $count = 0;
-                            }
-                            else{
-                                $count = login($row);
-                            }
-                            break;
-                    }
+                $('.login').hide();
+            </script>";
                     
-                } else{
+                    header("Location: /?action=account");
+                }
+                else{
                     echo "<span class='error'>Wrong Username or Password</span>";
                 }
             }
-//            if (isset($_POST['action'])){
-//                $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
-//            } 
-//            else if(isset($_GET['action'])){
-//                $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
-//            }
-           
         ?>
 <html>
      <head>
@@ -64,16 +40,15 @@ require 'functions.php';
            <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/app_links.php'; ?>
         <div class="container">
           <div class="row">
-   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="login col-sm-6">
-                <input type="hidden" name="action" value="login">
+            <form name="login" id="login-form" method="post" action="#" class="login col-sm-5">
             <table id="login">
                 <tr>
-                    <td>Username &nbsp;</td><span class="error">*<?= $userErr;?></span>
-                    <td><input name="myusername" type="text" id="myusername"/></td>                           
+                    <td>Username &nbsp;</td>
+                    <td><input name="myusername" type="text" id="myusername"/></td>                                     
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Password &nbsp;</td><span class="error">*<?= $passErr;?></span>
+                    <td>Password &nbsp;</td>
                     <td><input name="mypassword" type="password" id="mypassword"/></td>  
                     <td></td>
                 </tr>
@@ -87,7 +62,7 @@ require 'functions.php';
                 </tr>
             </table>
               </form>
-               <div class="col-sm-6 title">
+               <div class="col-sm-6">
                 <h2 class="center">Mountainland Family Medicine</h2>
                 <h4 class="center">Appointment Setting Application</h4>
                </div>
