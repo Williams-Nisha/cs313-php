@@ -49,8 +49,7 @@ require('db_connection.php');
                         <thead>
                            <tr>
                             <th></th> 
-                            <th>First Name</th> 
-                            <th>Last Name</th>
+                            <th>Patient Name</th>
                             <th>Street Address</th> 
                             <th>City</th>
                             <th>State</th>
@@ -66,15 +65,16 @@ require('db_connection.php');
                     <?php
                     foreach($query as $rows){
                         echo '<tr>';
-                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . '</td><td>' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['birthdate'] . '</td><td>' . $rows['notes'];
+                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['birthdate'] . '</td><td>' . $rows['notes'];
                             foreach($db->query("SELECT * FROM insurance i INNER JOIN patient p ON i.insurance_id = p.insurance_id WHERE p.first_name='" . $rows['first_name'] . "'") as $insurance){
                         echo '</td><td>' . $insurance['name'] . "</td></tr>";
                         break;
                     }
-//                         foreach($db->query("SELECT * FROM physician p INNER JOIN patient pa ON p.physician_id = pa.physician_id WHERE pa.first_name='" . $rows['first_name'] . "'") as $physician){
-//                        echo '</td><td>' . $physician['first_name'] . ' ' . $physician['first_name'] . "</td></tr>";
-//                        break;
-//                    }
+                         foreach($db->query("SELECT * FROM physician p INNER JOIN patient pa ON p.physician_id = pa.physician_id WHERE pa.first_name='" . $rows['first_name'] . "'") as $physician){
+                             
+                        echo '</td><td>' . $physician['first_name'] . ' ' . $physician['first_name'] . "</td></tr>";
+                        break;
+                    }
                     echo '</td></tr>';
                     
                      }
