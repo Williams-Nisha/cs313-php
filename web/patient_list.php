@@ -65,7 +65,7 @@ require('db_connection.php');
                     <?php
                     foreach($query as $rows){
                         echo '<tr>';
-                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zipcode'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['birthdate'] . '</td><td>' . $rows['notes'];
+                        echo '<strong><td>' . $rows['patient_id'] . '</td><td>' . $rows['first_name'] . ' ' . $rows['last_name'] . '</td><td>' . $rows['street_address'] . '</td><td>' . $rows['city'] . '</td><td>' . $rows['state'] . '</td><td>' . $rows['zip_code'] . '</td><td>' . $rows['phone_number'] . '</td><td>'. $rows['birthdate'] . '</td><td>' . $rows['notes'];
                             foreach($db->query("SELECT * FROM insurance i INNER JOIN patient p ON i.insurance_id = p.insurance_id WHERE p.first_name='" . $rows['first_name'] . "'") as $insurance){
                         echo '</td><td>' . $insurance['name'] . "</td>";
                         break;
