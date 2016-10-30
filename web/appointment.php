@@ -5,7 +5,7 @@ require('db_connection.php');
 ?>
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
-   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr ="";
+   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = "";
 
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'appointment_form') {
@@ -62,11 +62,13 @@ require('db_connection.php');
                   foreach($schedule as $sched){
                       
                       if($date >= $sched['start_time'] && $date <= $sched['end_time']){
+                          $schedErr = '';
 //                          echo 'doctor is available';
                           $has_schedule = TRUE;
                               
                       } else {
-                          echo 'doctor is not available';                      }
+//                          echo 'doctor is not available';   
+                          $schedErr = 'The doctor is not available during that time';}
                   }
                   
                 try {
@@ -82,12 +84,14 @@ require('db_connection.php');
                   
                     foreach($appointment as $appoint){
                         if($appoint['appointment_date'] == $date ){
-                          echo 'doctor has an appointment at that time';
+//                          echo 'doctor has an appointment at that time';
                           $has_appointment = TRUE;
+                            $appErr = 'The doctor has an appointment during that time';
                               
                       } else {
-                          echo 'doctor is available at that time';                      }
-                          
+//                          echo 'doctor is available at that time';   
+                        }
+                          $appErr = '';
                           
                       } 
                 } catch (exception $e){
@@ -100,7 +104,7 @@ require('db_connection.php');
                 }
             }
                 $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
-                $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
+                $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = $appErr = $schedErr = "";
 ?>
 
 <html>
@@ -134,7 +138,8 @@ require('db_connection.php');
             </form>
                  
                 <h2>Current Appointments</h2>
-            
+                    <span class="error"><? $appErr ?></span>
+                    <span class="error"><? $schedErr ?></span>
             <table>
                 <thead>
                     <tr>
@@ -156,7 +161,7 @@ require('db_connection.php');
                                                 ON a.physician_id = p.physician_id 
                                                 WHERE p.physician_id = a.physician_id") as $doctor){
                             if($doctor['physician_id'] == $rows['physician_id']){
-                        echo '</td><td>' . $doctor['first_name'] . ' '. $doctor['last_name'] . '</td></tr>';
+                        echo '</td><td>' . $doctor['first_name'] . ' ' . $doctor['last_name'] . '</td></tr>';
                             break;
                            }
                         
