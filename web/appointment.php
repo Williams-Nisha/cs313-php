@@ -158,7 +158,8 @@ ini_set('display_errors', true);
                                                 FROM appointment a INNER JOIN physician p 
                                                 ON a.physician_id = p.physician_id 
                                                 WHERE p.physician_id = a.physician_id") as $doctor){
-                            if($db->query("SELECT a.physician_id
+                        
+                        foreach($db->query("SELECT a.physician_id
                                                 FROM appointment a INNER JOIN physician p 
                                                 ON a.physician_id = p.physician_id 
                                                 WHERE a.physician_id ='" . $doctor['physician_id'] . "'"){
@@ -166,7 +167,7 @@ ini_set('display_errors', true);
                             break;
                            }
                             echo '</td></tr>';
-                   } //else {
+//                   } //else {
 //                            '</td><td>';
 //                        }
                         
