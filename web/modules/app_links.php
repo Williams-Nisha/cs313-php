@@ -1,6 +1,7 @@
  
        
             <ul class="app_links">
+                <li><a href="/appointment_app.php">Home</a></li>
              <li><a href="/patient_list.php">Patient Information</a></li>
              <li><a href="/doctor_list.php">Doctor Information</a></li>
              <li><a href="/new_patient.php">New Patient</a></li>
