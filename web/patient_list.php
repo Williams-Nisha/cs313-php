@@ -70,9 +70,9 @@ require('db_connection.php');
                         echo '</td><td>' . $insurance['name'] . "</td></tr>";
                         break;
                     }
-                         foreach($db->query("SELECT * FROM physician p INNER JOIN patient pa ON p.physician_id = pa.physician_id WHERE pa.first_name='" . $rows['first_name'] . "'") as $physician){
+                         foreach($db->query("SELECT * FROM physician p INNER JOIN patient pa ON p.physician_id = pa.physician_id WHERE pa.physician_id='" . $rows['physician_id'] . "'") as $physician){
                              
-                        echo '</td><td>' . $physician['first_name'] . ' ' . $physician['first_name'] . "</td></tr>";
+                        echo '</td><td>' . $physician['first_name'] . ' ' . $physician['last_name'] . "</td></tr>";
                         break;
                     }
                     echo '</td></tr>';
