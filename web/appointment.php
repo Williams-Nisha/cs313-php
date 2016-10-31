@@ -75,6 +75,7 @@ ini_set('display_errors', true);
                   echo $date;
                   $has_schedule = FALSE;
                   $has_appointment = FALSE;
+                  try {
                   $schedule = $db->query(
                     "SELECT
                         s.start_time
@@ -99,6 +100,9 @@ ini_set('display_errors', true);
                       }
                     
                   }
+                    catch (exception $e){
+                    $has_schedule = FALSE;
+                }
                   
                 try {
                 $appointment = $db->query(
