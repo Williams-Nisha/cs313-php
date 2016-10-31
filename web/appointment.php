@@ -6,6 +6,7 @@ ini_set('display_errors', true);
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
    $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = "";
+   $patient_found = FALSE;
 
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'appointment_form') {
@@ -44,7 +45,7 @@ ini_set('display_errors', true);
     }
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
-                  $patient_found = FALSE;
+                  
                   echo $patient_found;
                   $find_patient = $db->query(
                     "SELECT * from patient
