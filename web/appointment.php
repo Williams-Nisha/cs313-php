@@ -68,7 +68,7 @@ ini_set('display_errors', true);
                       }
                   }
                   
-                  
+                  echo $patient_found;
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
