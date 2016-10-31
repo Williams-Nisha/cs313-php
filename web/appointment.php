@@ -47,12 +47,15 @@ ini_set('display_errors', true);
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   
                   echo $patient_found;
+                  
                   $find_patient = $db->query(
                     "SELECT * from patient
                     WHERE first_name = '$fname'
                     AND last_name = '$lname'"
                 )->fetchAll();
+                  
                   echo 'In patient check';
+                  
                   foreach($find_patient as $find){
                       if($find['first_name'] == $fname && $find['last_name'] == $lname){
                           $patient_found = TRUE;
@@ -61,7 +64,7 @@ ini_set('display_errors', true);
                       } else {
                           $patientErr = 'Patient is not in system.';
                           echo 'Patient is not in system.';
-                          break;
+                        
                       }
                   }
                   
