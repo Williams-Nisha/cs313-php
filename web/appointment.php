@@ -61,6 +61,7 @@ ini_set('display_errors', true);
                           $patient_found = TRUE;
                           echo 'Patient is in system';
                           $patientErr = '';
+                          break;
                       } else {
                           $patientErr = 'Patient is not in system.';
                           echo 'Patient is not in system.';
@@ -115,8 +116,9 @@ ini_set('display_errors', true);
                         if($appoint['appointment_date'] == $date ){
 //                          echo 'doctor has an appointment at that time';
                           $has_appointment = TRUE;
-                            $appErr = 'The doctor has an appointment during that time';
+                          $appErr = 'The doctor has an appointment during that time';
                             echo ' The doctor has an appointment during this time';
+                            break;
                               
                       } else {
 //                          echo 'doctor is available at that time';   
