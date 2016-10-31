@@ -5,7 +5,7 @@ ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $adate = $atime = $doctor = "";
-   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = "";
+   $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = "";
 
        if (isset($_POST) && !empty($_POST)){
         if($_POST['form'] == 'appointment_form') {
@@ -42,9 +42,25 @@ ini_set('display_errors', true);
             }
         }
     }
-          
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
+                  $patient_found = FALSE;
+                  $find_patient = $db->query(
+                    "SELECT * from patient
+                    WHERE first_name = '$fname'
+                    AND last_name = '$lname'"
+                )->fetchAll();
+                  
+                  foreach($find_patient as $find){
+                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+                          $patient_found = TRUE;
+                      } else {
+                          $patientErr = 'Patient is not in system.';
+                          echo 'Patient is not in system.';
+                      }
+                  }
+                  
+                  
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
@@ -103,7 +119,7 @@ ini_set('display_errors', true);
                 } catch (exception $e){
                     $has_appointment = FALSE;
                 }
-                  if($has_schedule && !$has_appointment){
+                  if($has_schedule && !$has_appointment && $patient_found){
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                    (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
                   }
@@ -144,6 +160,7 @@ ini_set('display_errors', true);
                 <h2>Current Appointments</h2>
                     <p><span class="error"><?=$appErr;?></span></p>
                     <p><span class="error"><?=$schedErr; ?></span></p>
+                    <p><span class="error"><?=$patientErr; ?></span></p>
             <table>
                 <thead>
                     <tr>
@@ -176,7 +193,7 @@ ini_set('display_errors', true);
 //                    }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") //
                            $fname = $lname = $adate = $atime = $doctor = "";
-                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = "";
+                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = "";
                     ?>
                 </tbody>
             </table>
