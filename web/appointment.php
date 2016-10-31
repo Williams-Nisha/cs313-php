@@ -47,7 +47,7 @@ ini_set('display_errors', true);
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   
                   echo $patient_found; 
-                  try {
+                  
                   $find_patient = $db->query(
                     "SELECT * from patient
                     WHERE first_name = '$fname'
@@ -67,9 +67,6 @@ ini_set('display_errors', true);
                         
                       }
                   }
-                  } catch (exception $e){
-                      $patient_found = FALSE;
-                  }
                   
                   echo $patient_found;
                   echo $adate . ' ' . $atime;
@@ -78,8 +75,6 @@ ini_set('display_errors', true);
                   echo $date;
                   $has_schedule = FALSE;
                   $has_appointment = FALSE;
-                  
-                  try {
                   $schedule = $db->query(
                     "SELECT
                         s.start_time
@@ -103,13 +98,9 @@ ini_set('display_errors', true);
                           $schedErr = 'The doctor is not available during that time';
                       }
                     
-                    }
                   }
-                    catch (exception $e){
-                    $has_schedule = FALSE;
-                }
                   
-                try {
+//                try {
                 $appointment = $db->query(
                     "SELECT
                         a.appointment_date
@@ -133,9 +124,9 @@ ini_set('display_errors', true);
                         }
                          
                       } 
-                } catch (exception $e){
+//                } catch (exception $e){
                     $has_appointment = FALSE;
-                }
+//                }
                   if($has_schedule && !$has_appointment && $patient_found){
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                    (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
