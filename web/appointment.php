@@ -50,13 +50,16 @@ ini_set('display_errors', true);
                     WHERE first_name = '$fname'
                     AND last_name = '$lname'"
                 )->fetchAll();
-                  
+                  echo 'In patient check';
                   foreach($find_patient as $find){
                       if($find['first_name'] == $fname && $find['last_name'] == $lname){
                           $patient_found = TRUE;
+                          echo 'Patient is in system';
+                          $patientErr = '';
                       } else {
                           $patientErr = 'Patient is not in system.';
                           echo 'Patient is not in system.';
+                          break;
                       }
                   }
                   
