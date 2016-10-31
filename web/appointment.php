@@ -45,6 +45,7 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   $patient_found = FALSE;
+                  echo $patient_found;
                   $find_patient = $db->query(
                     "SELECT * from patient
                     WHERE first_name = '$fname'
