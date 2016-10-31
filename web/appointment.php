@@ -111,8 +111,8 @@ ini_set('display_errors', true);
 //                  echo 'In patient check';
 //                  echo $find_patient.length;
                   foreach($find_patient as $find){ 
-//                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
-                        if($find_patient.length  > 0){
+                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+//                        if($find_patient.length  > 0){
                           $patient_found = TRUE;
 //                          echo 'Patient is in system';
                           $patientErr = '';
