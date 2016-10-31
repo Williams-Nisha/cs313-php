@@ -46,10 +46,10 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   
-//                  echo $adat/e . ' ' . $atime;
+                  echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
-//                  echo $date;
+                  echo $date;
                   $has_schedule = FALSE;
                   $has_appointment = FALSE;
                   $schedule = $db->query(
@@ -110,8 +110,13 @@ ini_set('display_errors', true);
                     THEN 1
                     ELSE 0
                     END"
-                      foreach($find_patient as $find){
-                        if($find == 1){
+                )->fetchAll();
+                  
+//                  echo 'In patient check';
+//                  echo $find_patient.length;
+//                  foreach($find_patient as $find){ 
+//                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+                        if($find_patient == 1{
                           $patient_found = TRUE;
 //                          echo 'Patient is in system';
                           $patientErr = '';
