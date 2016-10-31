@@ -101,7 +101,6 @@ ini_set('display_errors', true);
                          
                       } 
                   
-                  echo $patient_found; 
                   
                   $find_patient = $db->query(
                     "SELECT * from patient
@@ -112,19 +111,18 @@ ini_set('display_errors', true);
                   echo 'In patient check';
                   echo $find_patient.length;
                   foreach($find_patient as $find){ 
-                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+//                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+                        if($find_patient.length  > 0){
                           $patient_found = TRUE;
-                          echo 'Patient is in system';
+//                          echo 'Patient is in system';
                           $patientErr = '';
                           break;
                       } else {
                           $patientErr = 'Patient is not in system.';
-                          echo 'Patient is not in system.';
-                        
+//                          echo 'Patient is not in system.';
                       }
                   }
                   
-                  echo $patient_found;
             
                   if($has_schedule && !$has_appointment && $patient_found){
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
