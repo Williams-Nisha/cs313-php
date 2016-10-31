@@ -114,12 +114,12 @@ ini_set('display_errors', true);
 //                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
                         if($find_patient){
                           $patient_found = TRUE;
-//                          echo 'Patient is in system';
+                          echo 'Patient is in system';
                           $patientErr = '';
                           break;
                       } else {
                           $patientErr = 'Patient is not in system.';
-//                          echo 'Patient is not in system.';
+                          echo 'Patient is not in system.';
                       }
                   }
                   
