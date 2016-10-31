@@ -125,7 +125,7 @@ ini_set('display_errors', true);
                           $patientErr = 'Patient is not in system.';
 //                          echo 'Patient is not in system.';
                       }
-                  }
+//                  }
                   
             
                   if($has_schedule && !$has_appointment && $patient_found){
