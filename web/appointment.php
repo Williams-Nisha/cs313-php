@@ -110,8 +110,8 @@ ini_set('display_errors', true);
                   
 //                  echo 'In patient check';
 //                  echo $find_patient.length;
-                  foreach($find_patient as $find){ 
-                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+//                  foreach($find_patient as $find){ 
+                      if($find_patient){
 //                        if($find_patient.length  > 0){
                           $patient_found = TRUE;
 //                          echo 'Patient is in system';
@@ -121,7 +121,7 @@ ini_set('display_errors', true);
                           $patientErr = 'Patient is not in system.';
 //                          echo 'Patient is not in system.';
                       }
-                  }
+//                  }
                   
             
                   if($has_schedule && !$has_appointment && $patient_found){
