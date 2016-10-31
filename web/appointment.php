@@ -47,7 +47,7 @@ ini_set('display_errors', true);
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   
                   echo $patient_found; 
-                  
+                  try {
                   $find_patient = $db->query(
                     "SELECT * from patient
                     WHERE first_name = '$fname'
@@ -67,6 +67,9 @@ ini_set('display_errors', true);
                         
                       }
                   }
+                  } catch (exception $e){
+                      $patient_found = FALSE;
+                  }
                   
                   echo $patient_found;
                   echo $adate . ' ' . $atime;
@@ -75,6 +78,7 @@ ini_set('display_errors', true);
                   echo $date;
                   $has_schedule = FALSE;
                   $has_appointment = FALSE;
+                  
                   try {
                   $schedule = $db->query(
                     "SELECT
