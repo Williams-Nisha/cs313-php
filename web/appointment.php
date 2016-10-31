@@ -103,23 +103,21 @@ ini_set('display_errors', true);
                   
                   
                   $find_patient = $db->query(
-                    "SELECT * from patient
+                    "SELECT CASE WHEN EXISTS
+                    (SELECT * from patient
                     WHERE first_name = '$fname'
-                    AND last_name = '$lname'"
-                )->fetchAll();
-                  
-//                  echo 'In patient check';
-//                  echo $find_patient.length;
-//                  foreach($find_patient as $find){ 
-//                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
-                        if($find_patient){
+                    AND last_name = '$lname')
+                    THEN 1
+                    ELSE 0
+                    END"
+                        if($find_patient == 1){
                           $patient_found = TRUE;
-                          echo 'Patient is in system';
+//                          echo 'Patient is in system';
                           $patientErr = '';
                           break;
                       } else {
                           $patientErr = 'Patient is not in system.';
-                          echo 'Patient is not in system.';
+//                          echo 'Patient is not in system.';
                       }
 //                  }
                   
