@@ -20,7 +20,7 @@ ini_set('display_errors', true);
 
             }
             else{
-                $lname = $_POST["appointment_date"];
+                $lname = $_POST["last_name"];
             }
              if(empty($_POST["appointment_date"])){
                 $adateErr = "Appointment Date is required";
