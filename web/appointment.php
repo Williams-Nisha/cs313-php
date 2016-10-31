@@ -46,30 +46,6 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   
-                  echo $patient_found; 
-                  
-                  $find_patient = $db->query(
-                    "SELECT * from patient
-                    WHERE first_name = '$fname'
-                    AND last_name = '$lname'"
-                )->fetchAll();
-                  
-                  echo 'In patient check';
-                  echo $find_patient.length;
-                  foreach($find_patient as $find){ 
-                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
-                          $patient_found = TRUE;
-                          echo 'Patient is in system';
-                          $patientErr = '';
-                          break;
-                      } else {
-                          $patientErr = 'Patient is not in system.';
-                          echo 'Patient is not in system.';
-                        
-                      }
-                  }
-                  
-                  echo $patient_found;
                   echo $adate . ' ' . $atime;
                  $timestamp = $adate . " " . $atime;
                   $date = date('Y-m-d H:i:s', strtotime($timestamp));
@@ -101,7 +77,6 @@ ini_set('display_errors', true);
                     
                   }
                   
-//                try {
                 $appointment = $db->query(
                     "SELECT
                         a.appointment_date
@@ -120,15 +95,37 @@ ini_set('display_errors', true);
                             echo ' The doctor has an appointment during this time';
                             break;
                               
-                      } else {
-//                          echo 'doctor is available at that time';   
+                      } else {   
                              $appErr = '';
                         }
                          
                       } 
-//                } catch (exception $e){
-                    $has_appointment = FALSE;
-//                }
+                  
+                  echo $patient_found; 
+                  
+                  $find_patient = $db->query(
+                    "SELECT * from patient
+                    WHERE first_name = '$fname'
+                    AND last_name = '$lname'"
+                )->fetchAll();
+                  
+                  echo 'In patient check';
+                  echo $find_patient.length;
+                  foreach($find_patient as $find){ 
+                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+                          $patient_found = TRUE;
+                          echo 'Patient is in system';
+                          $patientErr = '';
+                          break;
+                      } else {
+                          $patientErr = 'Patient is not in system.';
+                          echo 'Patient is not in system.';
+                        
+                      }
+                  }
+                  
+                  echo $patient_found;
+            
                   if($has_schedule && !$has_appointment && $patient_found){
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                    (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
@@ -205,7 +202,7 @@ ini_set('display_errors', true);
 //                    }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") //
                            $fname = $lname = $adate = $atime = $doctor = "";
-                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = "";
+                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = $inserted = "";
                     ?>
                 </tbody>
             </table>
