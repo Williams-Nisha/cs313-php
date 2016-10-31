@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', true);
 ?>
 <?php
-   $fname = $lname = $adate = $atime = $doctor = "";
+   $fname = $lname = $adate = $atime = $doctor = $inserted = "";
    $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = "";
    $patient_found = FALSE;
 
@@ -46,7 +46,7 @@ ini_set('display_errors', true);
             if($fnameErr == "" && $lnameErr == "" && $adateErr == "" && $atimeErr == "" && $doctorErr ==  ""){
               if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['form'] == 'appointment_form'){
                   
-                  echo $patient_found;
+                  echo $patient_found; 
                   
                   $find_patient = $db->query(
                     "SELECT * from patient
@@ -130,6 +130,7 @@ ini_set('display_errors', true);
                   if($has_schedule && !$has_appointment && $patient_found){
                       $db->exec("INSERT INTO appointment (appointment_id, appointment_date, physician_id, patient_id) VALUES 
                    (DEFAULT, '$date', (SELECT physician_id FROM physician WHERE first_name='$doctor'), (SELECT patient_id FROM patient WHERE first_name='$fname'))"); 
+                      $inserted = 'The appointment has been added to our system.';
                   }
                 }
             }
@@ -166,6 +167,7 @@ ini_set('display_errors', true);
             </form>
                  
                 <h2>Current Appointments</h2>
+                   <p><span><?=$inserted;?></span></p>
                     <p><span class="error"><?=$appErr;?></span></p>
                     <p><span class="error"><?=$schedErr; ?></span></p>
                     <p><span class="error"><?=$patientErr; ?></span></p>
