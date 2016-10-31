@@ -110,7 +110,8 @@ ini_set('display_errors', true);
                     THEN 1
                     ELSE 0
                     END"
-                        if($find_patient == 1){
+                      foreach($find_patient as $find){
+                        if($find == 1){
                           $patient_found = TRUE;
 //                          echo 'Patient is in system';
                           $patientErr = '';
@@ -119,7 +120,7 @@ ini_set('display_errors', true);
                           $patientErr = 'Patient is not in system.';
 //                          echo 'Patient is not in system.';
                       }
-//                  }
+                  }
                   
             
                   if($has_schedule && !$has_appointment && $patient_found){
