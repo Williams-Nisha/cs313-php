@@ -99,6 +99,7 @@ ini_set('display_errors', true);
                           $schedErr = 'The doctor is not available during that time';
                       }
                     
+                    }
                   }
                     catch (exception $e){
                     $has_schedule = FALSE;
