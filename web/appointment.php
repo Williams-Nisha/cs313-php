@@ -55,7 +55,7 @@ ini_set('display_errors', true);
                 )->fetchAll();
                   
                   echo 'In patient check';
-                  echo $find_patient;
+                  echo $find_patient.length;
                   foreach($find_patient as $find){ 
                       if($find['first_name'] == $fname && $find['last_name'] == $lname){
                           $patient_found = TRUE;
