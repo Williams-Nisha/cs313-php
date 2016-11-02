@@ -116,6 +116,8 @@ ini_set('display_errors', true);
 //                  echo $find_patient.length;
                   foreach($find_patient as $find){ 
 //                      if($find['first_name'] == $fname && $find['last_name'] == $lname){
+                      echo $fname;
+                      echo $lname;
                         echo $find[0];
                         if($find[0] == 1){
                           $patient_found = TRUE;
@@ -145,7 +147,7 @@ ini_set('display_errors', true);
         </title>
               <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
       <link rel="stylesheet" href="../stylesheets/styles.css">
-    </head>-
+    </head>
     <body>
             <?php include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.php'; ?>
         <main class="content">
