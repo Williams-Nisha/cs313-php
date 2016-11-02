@@ -68,13 +68,36 @@ ini_set('display_errors', true);
             }
         }
     }
-
             if($fnameErr == "" && $lnameErr == "" && $staddressErr == "" && $cityErr == "" && $stateErr == "" && $zipcodeErr == ""&& $phoneErr == "" && $birthdateErr ==  ""){
-                echo 'inside insert statement';
-                $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zip_code, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
-                (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
-                               
-                $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
+                    $patient_found = FALSE;
+                    $find_patient = $db->query(
+                    "SELECT CASE WHEN EXISTS
+                    (SELECT * from patient
+                    WHERE first_name = '$fname'
+                    AND last_name = '$lname')
+                    THEN 1
+                    ELSE 0
+                    END"
+                )->fetchAll();
+                  
+                  foreach($find_patient as $find){ 
+                        if($find[0] == 1){
+                          $patient_found = TRUE;
+                          echo 'Patient is in system';
+                          $patientErr = 'Patient cannot be added. Patient is already in the system.';
+                          break;
+                      } else {
+                          $patientErr = '';
+                          echo 'Patient is not in system.';
+                      }
+                  }
+                if(!$patient_found){
+                    $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zip_code, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
+                    (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
+                    $inserted = 'The appointment has been added to our system.';
+
+                    $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
+                }
             }
 ?>
 <html>
@@ -122,6 +145,8 @@ ini_set('display_errors', true);
                   <br><br>
               </form>
                 <h2>New Patient Information</h2>
+                <p><span><?=$inserted;?></span></p>
+                <p><span class="error"><?=$patientErr; ?></span></p>
                 <div class="information">
                     <table>
                         <thead>
@@ -156,7 +181,7 @@ ini_set('display_errors', true);
                     
                      }
                         $fname = $lname = $staddress = $city = $state = $zipcode= $phoneNumber= $birthdate = $doctor = $insurance = $notes = "";
-                        $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = "";
+                        $fnameErr = $lnameErr = $staddressErr = $birthdateErr = $cityErr = $stateErr =  $phoneErr = $zipcodeErr = $notesErr = $patientErr = $patient_found = "";
                     ?>
 
                     </tbody>

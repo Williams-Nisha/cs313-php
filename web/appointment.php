@@ -204,7 +204,7 @@ ini_set('display_errors', true);
 //                    }
 //                    $sched_apts = $db->query("SELECT * FROM appointment a JOIN physician p ON a.physician_id = p.physician_id INNER JOIN schedule s ON s.physician_id = p.physician_id INNER JOIN patient pa ON pa.physician_id = p.physcian_id;") //
                            $fname = $lname = $adate = $atime = $doctor = "";
-                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = $inserted = $find_patient = "";
+                           $fnameErr = $lnameErr = $adateErr = $atimeErr = $doctorErr = $schedErr = $appErr = $patientErr = $inserted = $find_patient = $has_appointment = $patient_found = "";
                     ?>
                 </tbody>
             </table>
