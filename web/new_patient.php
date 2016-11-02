@@ -1,7 +1,7 @@
 <?php
 require('db_connection.php');
-error_reporting(E_ALL);
-ini_set('display_errors', true);
+//error_reporting(E_ALL);
+//ini_set('display_errors', true);
 ?>
 <?php
    $fname = $lname = $staddress = $birthdate = $doctor = $insurance = $notes = "";
@@ -83,18 +83,18 @@ ini_set('display_errors', true);
                   foreach($find_patient as $find){ 
                         if($find[0] == 1){
                           $patient_found = TRUE;
-                          echo 'Patient is in system';
+//                          echo 'Patient is in system';
                           $patientErr = 'Patient cannot be added. Patient is already in the system.';
                           break;
                       } else {
                           $patientErr = '';
-                          echo 'Patient is not in system.';
+//                          echo 'Patient is not in system.';
                       }
                   }
                 if(!$patient_found){
                     $db->exec("INSERT INTO patient (patient_id,first_name, last_name, street_address, city, state, zip_code, phone_number, birthdate, notes, insurance_id, physician_id) VALUES 
                     (DEFAULT, '$fname', '$lname', '$staddress', '$city', '$state', '$zipcode', '$phoneNumber', '$birthdate', '$notes', (SELECT insurance_id FROM insurance WHERE name='$insurance'), (SELECT physician_id FROM physician WHERE first_name='$doctor'))");
-                    $inserted = 'The appointment has been added to our system.';
+                    $inserted = 'The patient has been added to our system.';
 
                     $pquery = $db->query("SELECT * FROM patient WHERE first_name='$fname'")->fetchAll();
                 }
